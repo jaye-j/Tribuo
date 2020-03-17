@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "postgres",
-    "password": null,
-    "database": "tribuo",
-    "host": "127.0.0.1",
+    "password": "austinjaydaniel",
+    "database": "database-1",
+    "host": "database-1.c3d8ugzo8clb.us-east-2.rds.amazonaws.com",
     "dialect": "postgres"
   },
   "test": {
