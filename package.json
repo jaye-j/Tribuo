@@ -2,20 +2,20 @@
   "name": "grouppage2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaye-j/Group-project-2.git"
+    "url": "git+https://github.com/jaye-j/Tribuo.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jaye-j/Group-project-2/issues"
+    "url": "https://github.com/jaye-j/Tribuo/issues"
   },
-  "homepage": "https://github.com/jaye-j/Group-project-2#readme",
+  "homepage": "https://github.com/jaye-j/Tribuo#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
