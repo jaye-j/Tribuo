@@ -11,10 +11,10 @@ router.post('/registration', (req, res) => {
   let employee_last_name = req.body.lastname;
   let employee_email_address = req.body.email;
   let departmentID = req.body.departmentID;
-  let password = req.body.password;
+  let employee_password = req.body.password;
 
-  let passwordEncrypted = bcrypt.hashSync(password, 8);
-  console.log(password);
+  let passwordEncrypted = bcrypt.hashSync(employee_password, 8);
+  console.log(employee_password);
   console.log(passwordEncrypted);
   db.employees
     .create({

@@ -25,8 +25,6 @@ router.use(
   })
 );
 
-router.use(bodyParser.urlencoded({ extended: false }));
-
 router.post('/', (req, res) => {
   let employee_email_address = req.body.email;
   let employee_password = req.body.password;
@@ -35,21 +33,21 @@ router.post('/', (req, res) => {
     .findAll({ where: { employee_email_address: employee_email_address } })
     .then(results => {
       console.log(results);
-      // bcrypt.compare(
-      //   employee_password,
-      //   results[0].password,
-      //   (err, response) => {
-      //     if (response) {
-      //       req.session.userid = id;
-      //       res.redirect('/employee');
-      //     } else {
-      //       console.log(err);
-      //       res.render('login', {
-      //         error: err
-      //       });
-      //     }
-      //   }
-      // );
+      bcrypt.compare(
+        employee_password,
+        results[0].employee_password,
+        (err, response) => {
+          if (response) {
+            req.session.userid = results[0].id;
+            res.redirect('/employee');
+          } else {
+            console.log(err);
+            res.render('login', {
+              error: err
+            });
+          }
+        }
+      );
     })
     .catch(err => {
       console.log(err);

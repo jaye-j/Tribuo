@@ -4,6 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.addColumn('employees', 'employee_password', {
       type: Sequelize.STRING
+      // after: 'department_id'
     });
   },
 
