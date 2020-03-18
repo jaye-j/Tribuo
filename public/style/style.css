@@ -64,6 +64,7 @@ body {
     height: 125px;
     width: 125px;
     margin: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 .profilecontent-con{
     display: flex;
@@ -104,10 +105,12 @@ body {
     border-radius: 35px;
     padding-left: 15px;
     padding-right: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 2px 2px rgba(0, 0, 0, 0.23);
 }
 .botpad{
     padding-bottom: 5px;
 }
 .content-title{
     color: #006CF8;
+    text-align: center;
 }
