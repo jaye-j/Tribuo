@@ -1,0 +1,27 @@
+html, div{
+    background-color: #006CF8;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.margin1{
+    margin-top: 10%;
+    height: 100%;
+}
+.font-color{
+    color: white;
+}
+.center1{
+    display: flex;
+    align-items: center;
+}
+.returnbtn{
+    color: #fff;
+    background-color: #4AA397;
+    border-color: #4AA397;
+    border-radius: 35px;
+    padding: 10px;
+    margin-top: 20px;
+}

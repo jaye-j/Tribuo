@@ -24,6 +24,7 @@ app.use(require('./controllers/login'));
 app.use(require('./controllers/employee'));
 app.use(require('./controllers/manager'));
 app.use(require('./controllers/registration'));
+app.use(require('./controllers/error'));
 app.use(require('./controllers/login'));
 app.use(require('./controllers/admindashboard'));
 
