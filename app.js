@@ -1,7 +1,13 @@
 const express = require('express');
 const app = express();
-
 const PORT = 2020;
+const bodyParser = require('body-parser');
+let db = require('./models');
+let sessions = require('express-session');
+let cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
