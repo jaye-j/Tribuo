@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
-let db = require("./models");
+let db = require("../models");
 
 router.get("/registration", (req, res) => {
   res.render("registration");
