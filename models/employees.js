@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
       employee_email_address: DataTypes.STRING,
       department_id: DataTypes.INTEGER,
       employee_password: DataTypes.STRING,
-      is_manager: DataTypes.BOOLEAN
+      is_manager: DataTypes.BOOLEAN,
+      is_admin: DataTypes.BOOLEAN
     },
     {}
   );
