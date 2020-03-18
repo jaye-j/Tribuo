@@ -55,10 +55,11 @@
             name="departmentID"
             placeholder="Choose the department you belong to."
           >
-            <option value="marketing">Marketing</option>
-            <option value="human-resources">Human Resources</option>
-            <option value="">Mercedes</option>
-            <option value="audi">Audi</option>
+            <% departments.forEach((department)=>{ %>
+            <option value="<%= department.id %>"
+              ><%= department.department_title %></option
+            >
+            <% }) %>
           </select>
         </div>
         <button type="submit" value="submit">Submit</button>
