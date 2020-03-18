@@ -25,7 +25,20 @@ router.post('/admin/department', (req, res) => {
 router.post('/admin/managers', (req, res) => {
   let employee_email_address = req.body.emp_email;
 
-  console.log(employee_email_address);
-  res.redirect('/admin');
+  db.employees
+    .findAll({ where: { employee_email_address: employee_email_address } })
+    .then(results => {
+      if (results.is_manager == null || false) {
+        db.employees.findByPk(results[0].id).then(user => {
+          console.log(user);
+          user.is_manager = true;
+          user.save().then(() => {
+            console.log('updated value').then(() => {
+              res.redirect('/admin');
+            });
+          });
+        });
+      }
+    });
 });
 module.exports = router;
