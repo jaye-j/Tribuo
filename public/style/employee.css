@@ -1,0 +1,113 @@
+
+body {
+    overflow-x: hidden;
+  }
+  
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+  }
+  
+  #sidebar-wrapper .sidebar-heading {
+      width: 240px;
+    font-size: 1.2rem;
+  }
+  
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  
+@media (min-width: 200px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+  
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
+.logo {
+    height: 242px;
+    margin: 0px;
+    border-bottom: 2px solid black transparent;
+}
+.bgblue{
+    background-color: rgb(213, 213, 213);
+}
+.bggreen{
+    background-color: #4AA397;
+}
+.profileimg-container{
+    display: flex;
+    justify-content: center;
+}
+.profileimg{
+    border: black 2px solid transparent;
+    border-radius: 250%;
+    height: 125px;
+    width: 125px;
+    margin: 15px;
+}
+.profilecontent-con{
+    display: flex;
+    justify-content: center;
+}
+.profilecontent{
+    color: white;
+    margin: 0px;
+}
+.profilesize{
+    font-size: 13px;
+}
+.list-group-items{
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #4AA397;
+}
+.list-group-items-action{
+    width: 100%;
+    color: white;
+    text-align: inherit;
+}
+.borderbot{
+    border-bottom: 2px solid white;
+}
+.bordertop{
+    border-top: 2px solid white;
+}
+.borderR{
+    border-right: 2px solid white;
+}
+.logoutbtn{
+    color: #fff;
+    background-color: #006CF8;
+    border-color: #006CF8;
+    border-radius: 10%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.botpad{
+    padding-bottom: 5px;
+}
+.content-title{
+    color: #006CF8;
+}
