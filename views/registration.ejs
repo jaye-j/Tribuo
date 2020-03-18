@@ -5,39 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="/style/registration.css" />
-    <title>Form Validator</title>
+    <title>Employee Registration</title>
   </head>
   <body>
     <div class="container">
-      <form id="form" class="form">
-        <h2>Register With Us</h2>
+      <form id="form" class="form" method="POST">
+        <h2>Register</h2>
         <div class="form-control">
-          <label for="username">Username</label>
-          <input type="text" id="username" placeholder="Enter username" />
+          <label for="first_name">First Name</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            placeholder="Enter first name"
+          />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="last_name">Last Name</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="Enter last name"
+          />
           <small>Error message</small>
         </div>
         <div class="form-control">
           <label for="email">Email</label>
-          <input type="text" id="email" placeholder="Enter email" />
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+          />
           <small>Error message</small>
         </div>
         <div class="form-control">
           <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter password" />
-          <small>Error message</small>
-        </div>
-        <div class="form-control">
-          <label for="password2">Confirm Password</label>
           <input
             type="password"
-            id="password2"
-            placeholder="Enter password again"
+            id="password"
+            name="password"
+            placeholder="Enter password"
           />
           <small>Error message</small>
         </div>
-        <button type="submit">Submit</button>
+        <div class="form-control">
+          <label for="password">Department</label>
+          <select
+            id="departmentID"
+            name="departmentID"
+            placeholder="Choose the department you belong to."
+          >
+            <option value="marketing">Marketing</option>
+            <option value="human-resources">Human Resources</option>
+            <option value="">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+          <small>Error message</small>
+        </div>
+        <button type="submit" value="submit">Submit</button>
       </form>
     </div>
-    <script src="script.js"></script>
   </body>
 </html>
