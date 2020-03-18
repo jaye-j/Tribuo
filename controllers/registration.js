@@ -13,70 +13,32 @@ router.post('/registration', (req, res) => {
   let departmentID = req.body.departmentID;
   let employee_password = req.body.password;
 
-  let passwordEncrypted = bcrypt.hashSync(employee_password, 8);
-  console.log(employee_password);
-  console.log(passwordEncrypted);
   db.employees
-    .create({
-      employee_first_name,
-      employee_last_name,
-      employee_email_address,
-      departmentID,
-      employee_password: passwordEncrypted
-    })
-    .then(newEmployee => {
-      // console.log(newEmployee);
-      res.redirect('/');
-    })
-    .catch(error => {
-      // console.log(error);
-      res.render('registration', {
-        error
-      });
+    .findAll({ where: { employee_email_address: employee_email_address } })
+    .then(results => {
+      if (results.length == 0) {
+        let passwordEncrypted = bcrypt.hashSync(employee_password, 8);
+        db.employees
+          .create({
+            employee_first_name,
+            employee_last_name,
+            employee_email_address,
+            departmentID,
+            employee_password: passwordEncrypted
+          })
+          .then(newEmployee => {
+            res.redirect('/');
+          })
+          .catch(error => {
+            res.render('registration', {
+              error
+            });
+          });
+      } else {
+        res.render('registration', {
+          err: 'There was a problem making your account.'
+        });
+      }
     });
 });
-
-// db.employees
-//   .findAll({ where: { employee_email_address: email } })
-//   .then(results => {
-//     if (results.length == 0 && password == password2) {
-//       let passwordEncrypted = bcrypt.hashSync(password, 10);
-//       db.employees
-//         .create({
-//           employee_first_name: firstname,
-//           employee_last_name: lastname,
-//           employee_email_address: email,
-//           employee_password: passwordEncrypted
-//         })
-//         .then(user => {
-//           res.send('post registration');
-
-//           // res.redirect('/login');
-//         })
-//         .catch(error => {
-//           res.send('error duplicate entry');
-//           // res.redirect('/registration?error=visible');
-//         });
-//     } else {
-//       //duplicates redicred
-//       res.send('There was a problem creating your account');
-//     }
-//   });
-
-//   db.employees
-//     .findAll({ where: { employee_email_address: email } })
-//     .then(results => {
-//       results
-//         .forEach(function(index) {
-//           console.log(index);
-//           if (index.employee_email_address == email) {
-//             res.send("You've already created an email with this account.");
-//           }
-//         })
-//         .then(() => {
-//           res.send('Moving on');
-//         });
-//     });
-// });
-
 module.exports = router;
