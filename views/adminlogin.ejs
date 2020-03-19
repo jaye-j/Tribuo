@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/style/registration.css" />
+    <title>Admin Login</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="form" class="form" action="/adminlogin" method="POST">
+        <h2>Admin Login</h2>
+
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+          />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter password"
+          />
+          <small>Error message</small>
+        </div>
+
+        <button value="submit" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
