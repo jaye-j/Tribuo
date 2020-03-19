@@ -1,5 +1,4 @@
 let addTaskForm = document.querySelector('.add-task-form');
-console.log(addTaskForm);
 
 addTaskForm.addEventListener('submit', e => {
   e.preventDefault();

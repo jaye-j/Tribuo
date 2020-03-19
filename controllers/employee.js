@@ -9,11 +9,10 @@ router.get('/employee', (req, res) => {
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+
 router.post('/employee', (req, res) => {
   let task_title = req.body.taskTitle;
   let task_instruction = req.body.taskInstruction;
-  console.log(task_title);
-  console.log(task_instruction);
 
   db.tasks.create({
     task_title,
