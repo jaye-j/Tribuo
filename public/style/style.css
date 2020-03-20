@@ -109,6 +109,12 @@ body {
   height: auto;
 }
 
+.main-navbar-container {
+  width: 90%;
+}
+
+.nav-row
+
 .top-navbar {
   display: flex;
   justify-content: flex-end;
@@ -121,12 +127,13 @@ body {
   display: flex;
   flex-flow: column;
   margin: 0 !important;
-  width:100%;
+  width: 100%;
 }
 
 .dash-content {
   width: 100%;
   padding: .5rem;
+  margin: .2rem;
 }
 
 .content-border {
@@ -143,13 +150,13 @@ body {
 
 
 
-
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 818px) {
   .admindashboardcontent {
     flex-flow: row;
   }
   .dash-content {
-    width: 50%;
+    width: 49%;
   }
+  
 }
 
