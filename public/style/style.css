@@ -59,6 +59,7 @@ body {
     justify-content: center;
 }
 .profilecontent{
+    font-family: 'Baloo Tamma 2', cursive;
     color: white;
     margin: 0px;
 }
@@ -87,10 +88,12 @@ body {
     border-right: 2px solid white;
 }
 .logoutbtn{
+    font-family: 'Baloo Tamma 2', cursive;
     color: #fff;
     background-color: #006CF8;
     border-color: #006CF8;
     border-radius: 35px;
+    padding-top: 5px;
     padding-left: 15px;
     padding-right: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 2px 2px rgba(0, 0, 0, 0.23);
@@ -148,6 +151,9 @@ body {
   color: white;
 }
 
+.font-baloo{
+  font-family: 'Baloo Tamma 2', cursive;
+}
 
 
 
