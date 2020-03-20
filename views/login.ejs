@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="/style/registration.css" />
-    <title>Employee Login</title>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma+2:700&display=swap" rel="stylesheet">
+    <title>Tribuo - Login</title>
   </head>
   <body>
-    <div class="nav-container">
-      <div class="topnav nav-flex">
-        <a class="active" href="/">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="/aboutus">About Us</a>
-      </div>
-    </div>
+    <!-- navbar -->
+    <nav>
+      <ul>
+      <a class="navbar-title subtitlefont" href="/">Tribuo.</a>
+      </ul>
+      <ul class="navbar-button-container">
+        <a class="navbar-button" href="/registration">Register</a>
+        <a class="navbar-button" href="/aboutus">About us</a>
+        <a class="navbar-button" href="/FAQ">FAQ</a>
+      </ul>
+    </nav>
+    <!-- /navbar -->
+
     <div class="logo-login-con">
     <div class="logo-container">
       <img height="200px" class="margin1rem logo-flex" src="/images/TRIBUO-6.png" alt="">
@@ -23,7 +30,7 @@
 
     <div class="container margin1rem">
       <form id="form" class="form" method="POST">
-        <h2>Login</h2>
+        <h2 class="subtitlefont">Login</h2>
 
         <div class="form-control">
           <label for="email">Email</label>

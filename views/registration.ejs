@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="/style/registration.css" />
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma+2:700&display=swap" rel="stylesheet">
     <title>Employee Registration</title>
   </head>
   <body>
-    <div class="nav-container">
-      <div class="topnav nav-flex">
-        <a class="active" href="/">Home</a>
-        <a href="#news">News</a>
-        <a href="#">Contact</a>
-        <a href="/aboutus">About Us</a>
-      </div>
+    <nav>
+      <ul>
+      <a class="navbar-title subtitlefont" href="/">Tribuo.</a>
+      </ul>
+      <ul class="navbar-button-container">
+        <a class="navbar-button" href="/registration">Register</a>
+        <a class="navbar-button" href="/aboutus">About us</a>
+        <a class="navbar-button" href="/FAQ">FAQ</a>
+      </ul>
+    </nav>
     </div>
     <div class="logo-login-con">
     <div class="logo-container">
@@ -23,7 +28,7 @@
 
     <div class="container margin1rem">
       <form id="form" class="form" method="POST">
-        <h2>Register</h2>
+        <h2 class="subtitlefont">Register</h2>
         <div class="form-control">
           <label for="first_name">First Name</label>
           <input
