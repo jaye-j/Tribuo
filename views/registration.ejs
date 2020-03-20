@@ -8,7 +8,20 @@
     <title>Employee Registration</title>
   </head>
   <body>
-    <div class="container">
+    <div class="nav-container">
+      <div class="topnav nav-flex">
+        <a class="active" href="/">Home</a>
+        <a href="#news">News</a>
+        <a href="#">Contact</a>
+        <a href="/aboutus">About Us</a>
+      </div>
+    </div>
+    <div class="logo-login-con">
+    <div class="logo-container">
+      <img height="200px" class="margin1rem logo-flex" src="/images/TRIBUO-6.png" alt="">
+    </div>
+
+    <div class="container margin1rem">
       <form id="form" class="form" method="POST">
         <h2>Register</h2>
         <div class="form-control">
@@ -55,6 +68,7 @@
             name="departmentID"
             placeholder="Choose the department you belong to."
           >
+            <option>-Select Department-</option>
             <% departments.forEach((department)=>{ %>
             <option value="<%= department.id %>"
               ><%= department.department_title %></option
@@ -65,5 +79,12 @@
         <button type="submit" value="submit">Submit</button>
       </form>
     </div>
+    </div>
   </body>
 </html>
+
+
+
+
+
+

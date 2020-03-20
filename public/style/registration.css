@@ -14,9 +14,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   min-height: 100vh;
   margin: 0;
 }
@@ -84,8 +84,8 @@ h2 {
 }
 .form button {
   cursor: pointer;
-  background-color: #3498db;
-  border: 2px solid #3498db;
+  background-color: #006CF8;
+  border: 2px solid #006CF8;
   border-radius: 4px;
   color: #fff;
   display: block;
@@ -99,6 +99,8 @@ h2 {
 .topnav {
   background-color: rgb(0, 91, 210);
   overflow: hidden;
+  width: 100%;
+  border-bottom: 2px solid white;
 }
 
 .topnav a {
@@ -121,3 +123,32 @@ h2 {
   color: white;
 }
 /* /navbar */
+
+.nav-container{
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.nav-flex{
+  justify-content: center;
+}
+
+.logo-container{
+  display: flex;
+  /* flex-direction: row; */
+}
+.logo-flex{
+  justify-content: center;
+}
+
+.logo-login-con{
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.margin1rem{
+  margin: 1rem;
+}
