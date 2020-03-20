@@ -43,6 +43,7 @@ router.post("/", (req, res) => {
         (err, response) => {
           if (response) {
             req.session.is_manager = results[0].is_manager;
+            req.session.department_id = results[0].department_id;
 
             if (results[0].is_manager == true) {
               console.log("manager session");
