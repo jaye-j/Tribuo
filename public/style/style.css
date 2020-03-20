@@ -110,10 +110,12 @@ body {
 }
 
 .main-navbar-container {
-  width: 90%;
+  width: 100%;
 }
 
-.nav-row
+.nav-row {
+  margin-right: -15px !important;
+}
 
 .top-navbar {
   display: flex;
@@ -150,7 +152,7 @@ body {
 
 
 
-@media screen and (min-width: 818px) {
+@media screen and (min-width: 860px) {
   .admindashboardcontent {
     flex-flow: row;
   }

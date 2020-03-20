@@ -48,12 +48,12 @@
             </div>
         </div>
         <!-- /sidebar -->
-        <div class="col-9 pl-0 pr-0">
-          <div class="row">
+        <div class="col-9">
+          <div class="row nav-row">
             <!-- navbar -->
             <div class="main-navbar-container">
               <nav class="navbar navbar-light bggreen borderbot">
-                <div style="color: white;">Hello, John</div>
+                <div style="color: white; text-align: center;">Hello, John</div>
                 <div class="top-navbar">
                     <button class="logoutbtn" id="menu-toggle">Sign out</button>
                 </div>
@@ -73,15 +73,16 @@
                 >
                   <h2>Create a Department</h2>
               
-                  <div class="form-control" style="height: 80px;">
-                    <label for="department">Department Name: </label>
-                    <input
+                  <div class="form-group" style="height: 80px;">
+                    <label for="department">Department Name: </label><br>
+                    <textarea
+                      class="form-control"
+                      placeholder="Enter a department to create"
                       type="text"
                       id="department"
                       name="department"
-                      placeholder="Enter a department to create"
-                      
-                    />
+                      cols="30"
+                      rows="1"></textarea>
                   </div>
               
                   <button
@@ -104,19 +105,20 @@
                   class="form"
                   action="/admin/managers"
                   method="POST"
-                  style="height: 200px;"
+                  
                 >
                   <h2>Create a Manager</h2>
               
-                  <div class="form-control" style="height: 80px;">
-                    <label for="department">Email Address: </label>
-                    <input
+                  <div class="form-group" style="height: 80px;">
+                    <label for="department">Email Address: </label><br>
+                    <textarea
+                      class="form-control"
                       type="text"
                       id="emp_email"
                       name="emp_email"
-                      placeholder="Enter an employee's email adress from existing users"
-                      
-                    />
+                      cols="30"
+                      rows="1"
+                      placeholder="Enter an employee's email adress from existing users"></textarea>
                   </div>
                   <!-- <div class="form-control">
                   <label for="department_managers">Department: </label>
@@ -138,7 +140,7 @@
                     value="submit"
                     type="submit"
                     class="logoutbtn"
-                    style="margin-top: 5px;"
+                    style="margin-top: 5px; margin-bottom: 5px;"
                   >
                     Submit
                   </button>
