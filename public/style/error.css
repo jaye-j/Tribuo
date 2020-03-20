@@ -1,5 +1,7 @@
-html, div{
-    background-color: #006CF8;
+body{
+    background-image: url("/images/tribuo-bkgd.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .center{
     display: flex;

@@ -5,20 +5,20 @@ body {
   
   #sidebar-wrapper {
     min-height: 100vh;
-    margin-left: -15rem;
+    /* margin-left: -15rem; */
     -webkit-transition: margin .25s ease-out;
     -moz-transition: margin .25s ease-out;
     -o-transition: margin .25s ease-out;
     transition: margin .25s ease-out;
   }
   
-  #sidebar-wrapper .sidebar-heading {
-      width: 240px;
+  #sidebar-wrapper  { /* sidebar-heading */
+      width: 100%;
     font-size: 1.2rem;
   }
-  
-  #sidebar-wrapper .list-group {
-    width: 15rem;
+
+  .sidebar-heading {
+    background-color: tomato;
   }
   
   #page-content-wrapper {
@@ -28,21 +28,7 @@ body {
   #wrapper.toggled #sidebar-wrapper {
     margin-left: 0;
   }
-  
-@media (min-width: 200px) {
-    #sidebar-wrapper {
-      margin-left: 0;
-    }
-  
-    #page-content-wrapper {
-      min-width: 0;
-      width: 100%;
-    }
-  
-    #wrapper.toggled #sidebar-wrapper {
-      margin-left: -15rem;
-    }
-  }
+
 .logo {
     height: 242px;
     margin: 0px;
@@ -55,14 +41,16 @@ body {
     background-color: #4AA397;
 }
 .profileimg-container{
+  width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .profileimg{
     border: black 2px solid transparent;
     border-radius: 250%;
-    height: 125px;
-    width: 125px;
+    height: auto;
+    width: 50%;
     margin: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
@@ -114,3 +102,63 @@ body {
     color: #006CF8;
     text-align: center;
 }
+.centerimg img{
+  /*margin-left: auto;
+  margin-right: auto;*/
+  width:100%;
+  height: auto;
+}
+
+.main-navbar-container {
+  width: 100%;
+}
+
+.nav-row {
+  margin-right: -15px !important;
+}
+
+.top-navbar {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1.2rem; /* change padding here for button */
+}
+
+
+
+.admindashboardcontent {
+  display: flex;
+  flex-flow: column;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.dash-content {
+  width: 100%;
+  padding: .5rem;
+  margin: .2rem;
+}
+
+.content-border {
+  border: 2px solid #006CF8;
+  border-radius: 15px;
+}
+
+.iconColor {
+  color: white;
+}
+
+
+
+
+
+
+@media screen and (min-width: 860px) {
+  .admindashboardcontent {
+    flex-flow: row;
+  }
+  .dash-content {
+    width: 49%;
+  }
+  
+}
+
