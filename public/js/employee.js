@@ -1,4 +1,6 @@
 let addTaskForm = document.querySelector('.add-task-form');
+let taskContainer = document.querySelector('.task-container');
+let claimTaskButton = document.querySelectorAll('.claim-task');
 
 addTaskForm.addEventListener('submit', e => {
   e.preventDefault();
@@ -17,3 +19,6 @@ addTaskForm.addEventListener('submit', e => {
     })
   });
 });
+
+console.log(taskContainer);
+console.log(claimTaskButton);

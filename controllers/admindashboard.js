@@ -1,8 +1,8 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const db = require("../models");
+const db = require('../models');
 
-router.get("/admin", (req, res) => {
+router.get('/admin', (req, res) => {
   let departmentsData = [];
   db.departments
     .findAll()
@@ -15,7 +15,7 @@ router.get("/admin", (req, res) => {
       });
     })
     .then(() => {
-      res.render("admindashboard", {
+      res.render('admindashboard', {
         departments: departmentsData
       });
     });
@@ -31,15 +31,15 @@ router.get("/admin", (req, res) => {
 //   });
 // });
 
-router.get("/admin/department", (req, res) => {
-  res.redirect("/admin");
+router.get('/admin/department', (req, res) => {
+  res.redirect('/admin');
 });
 
-router.get("/admin/managers", (req, res) => {
-  res.redirect("/admin");
+router.get('/admin/managers', (req, res) => {
+  res.redirect('/admin');
 });
 
-router.post("/admin/department", (req, res) => {
+router.post('/admin/department', (req, res) => {
   let department_title = req.body.department;
   let department_managers = req.body.department_managers;
 
@@ -53,20 +53,20 @@ router.post("/admin/department", (req, res) => {
             department_managers
           })
           .then(newDepartment => {
-            res.redirect("/admin");
+            res.redirect('/admin');
           })
           .catch(error => {
-            res.redirect("/admin");
-            console.log("Error: ", error);
+            res.redirect('/admin');
+            console.log('Error: ', error);
           });
       } else {
-        res.redirect("/admin");
-        console.log("There was an error.");
+        res.redirect('/admin');
+        console.log('There was an error.');
       }
     });
 });
 
-router.post("/admin/managers", (req, res) => {
+router.post('/admin/managers', (req, res) => {
   let employee_email_address = req.body.emp_email;
 
   db.employees
@@ -83,7 +83,7 @@ router.post("/admin/managers", (req, res) => {
               department.department_managers =
                 results[0].employee_email_address;
               department.save().then(() => {
-                console.log("updated value");
+                console.log('updated value');
                 res.redirect(
                   `/admin?name=${results[0].employee_first_name}&department=${department.department_title}`
                 );

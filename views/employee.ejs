@@ -35,13 +35,12 @@
             />
           </div>
           <div class="profilecontent-con">
-            <h6 class="profilecontent">John Smith</h6>
+            <h6 class="profilecontent">
+              <%= employee_first_name %> <%= employee_last_name %>
+            </h6>
           </div>
           <div class="profilecontent-con">
-            <p class="profilecontent profilesize">Department</p>
-          </div>
-          <div class="profilecontent-con">
-            <p class="profilecontent profilesize botpad">Position</p>
+            <p class="profilecontent profilesize"><%= department_title %></p>
           </div>
           <a
             href="#"
@@ -68,7 +67,7 @@
       <!-- Page Content -->
       <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bggreen borderbot">
-          <div style="color: white;">Hello, John</div>
+          <div style="color: white;">Hello, <%= employee_first_name %></div>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               <button class="logoutbtn" id="menu-toggle">Sign out</button>
@@ -76,8 +75,19 @@
           </div>
         </nav>
         <div class="container-fluid">
-          <h1 class="mt-4 content-title">TASKS</h1>
-          <h1>DISPLAYED TASKS AFTER CREATION</h1>
+          <h1 class="mt-4 content-title"><%= department_title %> Tasks</h1>
+          <div class="task-container">
+            <% taskInfo.forEach((task)=>{ %>
+            <div class="task">
+              <h1 class="task-div"><%= task.task_title %></h1>
+              <div><%= task.task_instruction %></div>
+              <button class="claim-task">
+                Claim Task
+              </button>
+            </div>
+            <% }) %>
+          </div>
+
           <div>
             <form id="form" class="form add-task-form">
               <h3>Add a task</h3>
