@@ -21,8 +21,8 @@ app.use(
 );
 
 // db.departments.destroy({ where: { id: 2 } });
-// for (let index = 19; index < 21; index++) {
-//   db.employees.destroy({ where: { id: `${index}` } });
+// for (let index = 37; index < 38; index++) {
+//   db.tasks.destroy({ where: { id: `${index}` } });
 // }
 
 app.use(require('./controllers/login'));
