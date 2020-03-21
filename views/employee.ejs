@@ -77,11 +77,15 @@
         <div class="container-fluid">
           <h1 class="mt-4 content-title"><%= department_title %> Tasks</h1>
           <div class="task-container">
-            <ul>
-              <% taskInfo.forEach((task)=>{ %>
-              <li><%= task.task_title %></li>
-              <% }) %>
-            </ul>
+            <% taskInfo.forEach((task)=>{ %>
+            <div class="task">
+              <h1 class="task-div"><%= task.task_title %></h1>
+              <div><%= task.task_instruction %></div>
+              <button class="claim-task">
+                Claim Task
+              </button>
+            </div>
+            <% }) %>
           </div>
 
           <div>
