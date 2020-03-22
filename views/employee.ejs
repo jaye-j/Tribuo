@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title><%= employee_first_name %> <%= employee_last_name %></title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -77,16 +77,23 @@
         <div class="container-fluid">
           <h1 class="mt-4 content-title"><%= department_title %> Tasks</h1>
           <div class="task-container">
-            <% taskInfo.forEach((task)=>{ %>
-            <div class="task">
-              <h1 class="task-div"><%= task.task_title %></h1>
-              <div><%= task.task_instruction %></div>
-              <button class="claim-task">
-                Claim Task
+            <h2>Unclaimed Tasks:</h2>
+            <form class="select-tasks">
+              <% taskInfo.forEach((task)=>{ %>
+              <input
+                type="checkbox"
+                name="<%= task.id %>"
+                value="<%= task.id %>"
+                id="<%= task.id %>"
+              />
+              <label for="<%= task.id %>"> <%= task.task_title %></label><br />
+              <% }) %>
+              <button class="claim-task" value="submit" type="submit">
+                Claim Task(s)
               </button>
-            </div>
-            <% }) %>
+            </form>
           </div>
+          <br />
 
           <div>
             <form id="form" class="form add-task-form">
@@ -122,6 +129,12 @@
               </button>
             </form>
           </div>
+        </div>
+        <br />
+        <div class="your-tasks">
+          <h1 class="mt-4 content-title">
+            <%= employee_first_name %>'s Tasks:
+          </h1>
         </div>
       </div>
 

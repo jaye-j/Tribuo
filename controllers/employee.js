@@ -29,6 +29,10 @@ router.get('/employee', (req, res) => {
     });
 });
 
+router.get('/employeetaskselection', (req, res) => {
+  res.redirect('/employee');
+});
+
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
@@ -44,6 +48,12 @@ router.post('/employee', (req, res) => {
   });
 
   // res.render('employee');
+});
+
+router.post('/employeetaskselection', (req, res) => {
+  let department_id = req.session.department_id;
+  console.log(department_id);
+  //find by pk and update the belongs to column
 });
 
 module.exports = router;

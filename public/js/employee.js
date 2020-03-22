@@ -1,6 +1,5 @@
 let addTaskForm = document.querySelector('.add-task-form');
-let taskContainer = document.querySelector('.task-container');
-let claimTaskButton = document.querySelectorAll('.claim-task');
+let claimTaskForm = document.querySelector('.select-tasks');
 
 addTaskForm.addEventListener('submit', e => {
   e.preventDefault();
@@ -20,5 +19,19 @@ addTaskForm.addEventListener('submit', e => {
   });
 });
 
-console.log(taskContainer);
-console.log(claimTaskButton);
+claimTaskForm.addEventListener('submit', e => {
+  e.preventDefault();
+  console.log(claimTaskForm);
+  let taskSelection = claimTaskForm.value;
+  console.log(taskSelection);
+  let postdata = 'THis is post data test';
+  fetch('/employeetaskselection', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      postdata: postdata
+    })
+  });
+});
