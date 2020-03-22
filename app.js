@@ -21,7 +21,7 @@ app.use(
 );
 
 // db.departments.destroy({ where: { id: 2 } });
-// for (let index = 37; index < 38; index++) {
+// for (let index = 37; index < 54; index++) {
 //   db.tasks.destroy({ where: { id: `${index}` } });
 // }
 

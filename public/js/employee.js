@@ -19,6 +19,3 @@ addTaskForm.addEventListener('submit', e => {
     })
   });
 });
-
-console.log(taskContainer);
-console.log(claimTaskButton);
