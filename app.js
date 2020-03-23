@@ -26,15 +26,17 @@ app.use(
 //   db.tasks.destroy({ where: { id: `${index}` } });
 // }
 
-app.use(require("./controllers/login"));
-app.use(require("./controllers/employee"));
-app.use(require("./controllers/manager"));
-app.use(require("./controllers/registration"));
-app.use(require("./controllers/error"));
-app.use(require("./controllers/login"));
-app.use(require("./controllers/admindashboard"));
-app.use(require("./controllers/adminlogin"));
-app.use(require("./controllers/aboutus"));
+app.use(require('./controllers/login'));
+app.use(require('./controllers/employee'));
+app.use(require('./controllers/manager'));
+app.use(require('./controllers/registration'));
+app.use(require('./controllers/error'));
+app.use(require('./controllers/login'));
+app.use(require('./controllers/admindashboard'));
+app.use(require('./controllers/adminlogin'));
+app.use(require('./controllers/aboutus'));
+app.use(require('./controllers/homepage'));
+app.use(require('./controllers/FAQ'));
 
 let server = app.listen(PORT, () => {
   console.log("Server is listening on port 2020.");
