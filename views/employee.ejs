@@ -65,9 +65,7 @@
           <div class="row employeedashboardcontent mr-0">
             <div class="container dash-content content-border some-content">
               <div class="employee-container">
-                <div class="placeholder">
-                  <%= department_title %> Tasks: 
-                </div>
+                <h3 style="color: #006CF8;" class="font-baloo"><%= department_title %> Tasks: </h3>
                 <div>Unclaimed Tasks:</div>
                 <form class="select-tasks">
                   <% taskInfo.forEach((task)=>{ %>
@@ -80,7 +78,7 @@
                   />
                   <label for="<%= task.id %>"> <%= task.task_title %></label><br />
                   <% }) %>
-                  <button class="claim-task" value="submit" type="submit">
+                  <button class="claim-task logoutbtn" value="submit" type="submit">
                     Claim Task
                   </button>
                 </form>
@@ -93,7 +91,7 @@
             <div class="container dash-content content-border some-content">
               <div class="employee-container">
                 <form id="form" class="form add-task-form">
-                  <h3>Add a task</h3>
+                  <h3 style="color: #006CF8;" class="font-baloo">Add Task: </h3>
               
                   <div class="form-control" style="height: auto; width: 100%;">
                     <label for="department">Task Title: </label><br>
@@ -103,7 +101,7 @@
                       name="task_title"
                       placeholder="Enter a title for the task."
                       size="50"
-                    /><br>
+                    /><br><br>
                     <label for="department">Task Instructions: </label><br>
                     <textarea
                       type="text"
@@ -118,7 +116,7 @@
                   <button
                     value="submit"
                     type="submit"
-                    class="add-task"
+                    class="add-task logoutbtn"
                     style="margin-top: 5px;"
                   >
                     Submit
@@ -135,7 +133,7 @@
               <h1 class="mt-4 content-title">
                 <div class="container dash-content content-border some-content">
                   <div class="employee-container">
-                <%= employee_first_name %>'s Tasks: 
+                <h3 style="color: #006CF8;" class="font-baloo"><%= employee_first_name %>'s Tasks: </h3>
                   </div>
                   </h1>
                 </h1>
