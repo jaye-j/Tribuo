@@ -34,6 +34,8 @@ app.use(require('./controllers/login'));
 app.use(require('./controllers/admindashboard'));
 app.use(require('./controllers/adminlogin'));
 app.use(require('./controllers/aboutus'));
+app.use(require('./controllers/homepage'));
+app.use(require('./controllers/FAQ'));
 
 app.listen(PORT, () => {
   console.log('Server is listening on port 2020.');
