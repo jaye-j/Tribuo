@@ -1,7 +1,9 @@
+
 let addTaskForm = document.querySelector(".add-task-form");
 let taskContainer = document.querySelector(".select-tasks");
 let claimTaskButton = document.querySelector(".claim-task");
 const socket = io();
+
 
 addTaskForm.addEventListener("submit", e => {
   e.preventDefault();
@@ -47,4 +49,26 @@ socket.on("new task", taskData => {
   />`;
   output += `<label for="${taskData.task_id}"> ${taskData.task_title}</label><br />`;
   claimTaskButton.insertAdjacentHTML("beforebegin", output);
+});
+
+taskContainer.addEventListener('submit', e => {
+  e.preventDefault();
+  let inputElements = document.getElementsByClassName('messageCheckbox');
+  let checkedValue = null;
+  for (var i = 0; inputElements[i]; ++i) {
+    if (inputElements[i].checked) {
+      checkedValue = inputElements[i].value;
+      break;
+    }
+  }
+  console.log(checkedValue);
+  fetch('/employee', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      selectedTask: checkedValue
+    })
+  });
 });
