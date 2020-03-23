@@ -1,7 +1,10 @@
-let addTaskForm = document.querySelector(".add-task-form");
-let taskContainer = document.querySelector(".select-tasks");
-let claimTaskButton = document.querySelector(".claim-task");
-let submitTaskButton = document.querySelector(".finish-task");
+
+let addTaskForm = document.querySelector('.add-task-form');
+let taskContainer = document.querySelector('.select-tasks');
+let claimTaskButton = document.querySelector('.claim-task');
+let submitTaskButton = document.querySelector('.finish-task');
+let submitTaskForm = document.querySelector('.select-specific-tasks');
+
 const socket = io();
 
 addTaskForm.addEventListener("submit", e => {
@@ -107,4 +110,26 @@ socket.on("claimed task", data => {
     output += `<br />`;
     submitTaskButton.insertAdjacentHTML("beforebegin", output);
   }
+});
+
+submitTaskForm.addEventListener('submit', e => {
+  e.preventDefault();
+  let inputElements = document.getElementsByClassName('messageSubmitCheckbox');
+  let checkedValue = null;
+  for (var i = 0; inputElements[i]; ++i) {
+    if (inputElements[i].checked) {
+      checkedValue = inputElements[i].value;
+      break;
+    }
+  }
+  console.log(checkedValue);
+  fetch('/employeecompletedtask', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      completedTask: checkedValue
+    })
+  });
 });

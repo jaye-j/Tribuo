@@ -92,4 +92,14 @@ router.post("/employeeselectedtask", (req, res) => {
   });
 });
 
+router.post('/employeecompletedtask', (req, res) => {
+  let completedTask = req.body.completedTask;
+  let id = req.session.employee_id;
+
+  db.tasks.findByPk(completedTask).then(taskselected => {
+    taskselected.task_status = 'Completed';
+    taskselected.save();
+  });
+});
+
 module.exports = router;
