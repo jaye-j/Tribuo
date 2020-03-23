@@ -17,24 +17,42 @@ router.get('/employee', (req, res) => {
   let department_id = req.session.department_id;
   let employee_first_name = req.session.employee_first_name;
   let employee_last_name = req.session.employee_last_name;
+  let id = req.session.employee_id;
+  let department_title = '';
+  let taskInfo = [];
+
   db.tasks
     .findAll({
       where: { department_id: department_id }
     })
     .then(results => {
-      // console.log(results[0].task_title);
-      let taskInfo = results;
+      let testing = results.forEach(element => {
+        if (element.employee_id == null || false) {
+          taskInfo.push(element);
+        }
+      });
+      console.log(taskInfo);
       db.departments
         .findAll({ where: { id: department_id } })
         .then(departmentsresult => {
-          // console.log(departmentsresult);
-          let department_title = departmentsresult[0].department_title;
-          res.render('employee', {
-            taskInfo: taskInfo,
-            employee_first_name: employee_first_name,
-            employee_last_name: employee_last_name,
-            department_title: department_title
-          });
+          department_title = departmentsresult[0].department_title;
+        })
+        .then(() => {
+          db.tasks
+            .findAll({ where: { employee_id: id } })
+            .then(specificresults => {
+              return specificresults;
+            })
+            .then(specificresults => {
+              console.log(specificresults);
+              res.render('employee', {
+                taskInfo: taskInfo,
+                specificTaskInfo: specificresults,
+                employee_first_name: employee_first_name,
+                employee_last_name: employee_last_name,
+                department_title: department_title
+              });
+            });
         });
     });
 });
@@ -61,14 +79,14 @@ router.post('/employee', (req, res) => {
 });
 
 router.post('/employeeselectedtask', (req, res) => {
-  console.log(req.session);
   let selectedTask = req.body.selectedTask;
   let id = req.session.employee_id;
-  console.log(selectedTask);
-  console.log(id);
+
   db.tasks.findByPk(selectedTask).then(taskselected => {
     taskselected.employee_id = id;
-    taskselected.save();
+    taskselected.save().then(result => {
+      res.send(result);
+    });
   });
 });
 
