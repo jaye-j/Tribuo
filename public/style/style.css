@@ -136,7 +136,8 @@ body {
 }
 
 .dash-content {
-  width: 100%;
+  background-color: white;
+  width: 10%;
   padding: .5rem;
   margin: .2rem;
 }
@@ -155,6 +156,17 @@ body {
   font-family: 'Baloo Tamma 2', cursive;
 }
 
+.employeedashboardcontent{
+  width: 100%;
+}
+
+.employee-container {
+  width: 100%;
+}
+
+.some-content {
+  width: 50%;
+}
 
 
 
