@@ -1,24 +1,25 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const db = require('../models');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
+const db = require("../models");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 
 router.use(cookieParser());
 router.use(
   session({
-    secret: 'Tribuo',
+    secret: "Tribuo",
     cookie: { secure: false, maxAge: 5 * 24 * 60 * 60 * 1000 }
   })
 );
 
-router.get('/employee', (req, res) => {
+router.get("/employee", (req, res) => {
   let department_id = req.session.department_id;
   let employee_first_name = req.session.employee_first_name;
   let employee_last_name = req.session.employee_last_name;
+  let employee_id = req.session.employee_id;
   let id = req.session.employee_id;
-  let department_title = '';
+  let department_title = "";
   let taskInfo = [];
 
   db.tasks
@@ -45,12 +46,13 @@ router.get('/employee', (req, res) => {
             })
             .then(specificresults => {
               console.log(specificresults);
-              res.render('employee', {
+              res.render("employee", {
                 taskInfo: taskInfo,
                 specificTaskInfo: specificresults,
                 employee_first_name: employee_first_name,
                 employee_last_name: employee_last_name,
-                department_title: department_title
+                department_title: department_title,
+                employee_id: employee_id
               });
             });
         });
@@ -60,7 +62,7 @@ router.get('/employee', (req, res) => {
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-router.post('/employee', (req, res) => {
+router.post("/employee", (req, res) => {
   let task_title = req.body.taskTitle;
   let task_instruction = req.body.taskInstruction;
   let department_id = req.session.department_id;
@@ -78,7 +80,7 @@ router.post('/employee', (req, res) => {
     });
 });
 
-router.post('/employeeselectedtask', (req, res) => {
+router.post("/employeeselectedtask", (req, res) => {
   let selectedTask = req.body.selectedTask;
   let id = req.session.employee_id;
 
