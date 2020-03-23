@@ -1,9 +1,9 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const db = require("../models");
-const bodyParser = require("body-parser");
+const db = require('../models');
+const bodyParser = require('body-parser');
 
-router.get("/employee", (req, res) => {
+router.get('/employee', (req, res) => {
   let department_id = req.session.department_id;
   let employee_first_name = req.session.employee_first_name;
   let employee_last_name = req.session.employee_last_name;
@@ -19,7 +19,7 @@ router.get("/employee", (req, res) => {
         .then(departmentsresult => {
           // console.log(departmentsresult);
           let department_title = departmentsresult[0].department_title;
-          res.render("employee", {
+          res.render('employee', {
             taskInfo: taskInfo,
             employee_first_name: employee_first_name,
             employee_last_name: employee_last_name,
@@ -32,7 +32,7 @@ router.get("/employee", (req, res) => {
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-router.post("/employee", (req, res) => {
+router.post('/employee', (req, res) => {
   let task_title = req.body.taskTitle;
   let task_instruction = req.body.taskInstruction;
   let department_id = req.session.department_id;
@@ -48,6 +48,25 @@ router.post("/employee", (req, res) => {
       console.log(newTaskID);
       res.send(`${newTaskID}`);
     });
+});
+
+router.post('/employeetaskclaim', (req, res) => {
+  let selectedTask = req.body.selectedTask;
+  console.log(selectedTask);
+  // let task_instruction = req.body.taskInstruction;
+  // let department_id = req.session.department_id;
+
+  // db.tasks
+  //   .create({
+  //     task_title,
+  //     task_instruction,
+  //     department_id
+  //   })
+  //   .then(result => {
+  //     let newTaskID = result.dataValues.id;
+  //     console.log(newTaskID);
+  //     res.send(`${newTaskID}`);
+  //   });
 });
 
 module.exports = router;
