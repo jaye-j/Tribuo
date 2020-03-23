@@ -2,6 +2,16 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
+router.use(cookieParser());
+router.use(
+  session({
+    secret: 'Tribuo',
+    cookie: { secure: false, maxAge: 5 * 24 * 60 * 60 * 1000 }
+  })
+);
 
 router.get('/employee', (req, res) => {
   let department_id = req.session.department_id;
@@ -51,8 +61,15 @@ router.post('/employee', (req, res) => {
 });
 
 router.post('/employeeselectedtask', (req, res) => {
+  console.log(req.session);
   let selectedTask = req.body.selectedTask;
+  let id = req.session.employee_id;
   console.log(selectedTask);
+  console.log(id);
+  db.tasks.findByPk(selectedTask).then(taskselected => {
+    taskselected.employee_id = id;
+    taskselected.save();
+  });
 });
 
 module.exports = router;
