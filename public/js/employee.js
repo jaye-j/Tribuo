@@ -1,6 +1,7 @@
 let addTaskForm = document.querySelector(".add-task-form");
 let taskContainer = document.querySelector(".select-tasks");
 let claimTaskButton = document.querySelector(".claim-task");
+let submitTaskButton = document.querySelector(".finish-task");
 const socket = io();
 
 addTaskForm.addEventListener("submit", e => {
@@ -54,6 +55,7 @@ taskContainer.addEventListener("submit", e => {
   let inputElements = document.getElementsByClassName("messageCheckbox");
   let specificTaskDisplay = document.querySelector(".our-tasks");
   let checkedValue = null;
+  let claimedInfo = [];
   for (var i = 0; inputElements[i]; ++i) {
     if (inputElements[i].checked) {
       checkedValue = inputElements[i].value;
@@ -61,7 +63,6 @@ taskContainer.addEventListener("submit", e => {
     }
   }
   console.log(checkedValue);
-  socket.emit("claimed task", checkedValue);
   fetch("/employeeselectedtask", {
     method: "POST",
     headers: {
@@ -75,23 +76,35 @@ taskContainer.addEventListener("submit", e => {
       return response.json();
     })
     .then(response => {
+      let sendData = [checkedValue, response];
+      socket.emit("claimed task", sendData);
       //code for displaying the added task through the append which takes the data for the task from the response.
-      let output = "";
-      output += ``;
-      output += ``;
-      output += ``;
-      output += ``;
-      output += ``;
-      specificTaskDisplay.appendChild();
-      socket.emit("claimed task", checkedValue);
+      console.log(response);
     });
 });
 
-socket.on("claimed task", checkedValue => {
-  let claimedTask = document.getElementById(`${checkedValue}`);
+socket.on("claimed task", data => {
+  let employee_id = document.querySelector(".id-holder").id;
+  console.log(employee_id);
+  let claimedTask = document.getElementById(`${data[0]}`);
   let labelForTask = claimedTask.labels[0];
   console.log(claimedTask);
   console.log(labelForTask);
   claimedTask.remove();
   labelForTask.remove();
+  if (employee_id == data[1].employee_id) {
+    let output = "";
+    output += `<input
+      class="messageCheckbox"
+      type="radio"
+      name="specificTasks"
+      value="${data[1].id}"
+      id="${data[1].id}"
+    />`;
+    output += `<label for="${data[1].id}">`;
+    output += `${data[1].task_title}</label>`;
+    output += `<div>${data[1].task_instruction}</div>`;
+    output += `<br />`;
+    submitTaskButton.insertAdjacentHTML("beforebegin", output);
+  }
 });
