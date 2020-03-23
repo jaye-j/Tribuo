@@ -42,6 +42,7 @@ router.post('/', (req, res) => {
         results[0].employee_password,
         (err, response) => {
           if (response) {
+            req.session.employee_id = results[0].id;
             req.session.employee_first_name = results[0].employee_first_name;
             req.session.employee_last_name = results[0].employee_last_name;
             req.session.employee_email_address =
