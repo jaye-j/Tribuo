@@ -1,9 +1,8 @@
-
-let addTaskForm = document.querySelector('.add-task-form');
-let taskContainer = document.querySelector('.select-tasks');
-let claimTaskButton = document.querySelector('.claim-task');
-let submitTaskButton = document.querySelector('.finish-task');
-let submitTaskForm = document.querySelector('.select-specific-tasks');
+let addTaskForm = document.querySelector(".add-task-form");
+let taskContainer = document.querySelector(".select-tasks");
+let claimTaskButton = document.querySelector(".claim-task");
+let submitTaskButton = document.querySelector(".finish-task");
+let submitTaskForm = document.querySelector(".select-specific-tasks");
 
 const socket = io();
 
@@ -107,14 +106,13 @@ socket.on("claimed task", data => {
     output += `<label for="${data[1].id}">`;
     output += `${data[1].task_title}</label>`;
     output += `<div>${data[1].task_instruction}</div>`;
-    output += `<br />`;
     submitTaskButton.insertAdjacentHTML("beforebegin", output);
   }
 });
 
-submitTaskForm.addEventListener('submit', e => {
+submitTaskForm.addEventListener("submit", e => {
   e.preventDefault();
-  let inputElements = document.getElementsByClassName('messageSubmitCheckbox');
+  let inputElements = document.getElementsByClassName("messageSubmitCheckbox");
   let checkedValue = null;
   for (var i = 0; inputElements[i]; ++i) {
     if (inputElements[i].checked) {
@@ -123,13 +121,21 @@ submitTaskForm.addEventListener('submit', e => {
     }
   }
   console.log(checkedValue);
-  fetch('/employeecompletedtask', {
-    method: 'POST',
+  fetch("/employeecompletedtask", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       completedTask: checkedValue
     })
   });
+  let submitTask = document.getElementById(`${checkedValue}`);
+  let labelForTask = submitTask.labels[0];
+  let instructions = submitTask.labels[0].nextElementSibling;
+  console.log(submitTask);
+  console.log(labelForTask);
+  instructions.remove();
+  submitTask.remove();
+  labelForTask.remove();
 });
