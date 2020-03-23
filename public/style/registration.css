@@ -17,7 +17,7 @@ body {
   /* display: flex;
   align-items: center;
   justify-content: center; */
-  min-height: 100vh;
+  min-height: 110vh;
   margin: 0;
 }
 
@@ -166,6 +166,12 @@ h2 {
   font-size: 5rem;
   color: white;
 }
+.subtitlefont3{
+  font-family: 'Baloo Tamma 2', cursive;
+  font-size: 1.6rem;
+  color: white;
+}
+
 .namesfont{
   font-family: 'Baloo Tamma 2', cursive;
   color: white;
@@ -234,17 +240,13 @@ h2 {
   margin-left: 7px;
   margin-right: 7px;
 }
-/* .logo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-} */
 
 nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   background-color: rgb(0, 91, 210);
   border-bottom: 2px solid white;
 }
@@ -270,4 +272,94 @@ ul {
   text-decoration: none;
   color: white;
   font-size: 20px;
+}
+
+.login-reg-btns{
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.buttons{
+  width: 200px;
+  height: 75px;
+  background-color: white;
+  border: transparent 2px solid black;
+  border-radius: 15px;
+  font-family: 'Baloo Tamma 2', cursive;
+  font-size: 30px;
+  padding-top: 5px;
+}
+
+.centercontent{
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.listFAQ {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  color: white;
+  padding: 10px;
+  cursor: default;
+}
+
+.answer {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  cursor: default;
+}
+
+.bg-lightgray {
+  width: 100%;
+  background-color: transparent;
+  padding: 25px;
+  border-top: white solid 0.5px;
+  text-align: center;
+}
+.bg-white {
+  width: 100%;
+  background-color: transparent;
+  padding: 25px;
+  border-top: white solid 0.5px;
+  text-align: center;
+}
+
+@media screen and (max-width: 360px) {
+  
+  body {
+    background-image: url("/images/tribuo-bkgd.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    min-height: 122vh;
+    margin: 0;
+  }
+
+}
+@media screen and (max-width: 320px) {
+  
+  body {
+    background-image: url("/images/tribuo-bkgd.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    min-height: 140vh;
+    margin: 0;
+  }
+
 }
