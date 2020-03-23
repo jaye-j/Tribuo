@@ -1,6 +1,6 @@
 let addTaskForm = document.querySelector(".add-task-form");
-let taskContainer = document.querySelector(".task-container");
-let claimTaskButton = document.querySelectorAll(".claim-task");
+let taskContainer = document.querySelector(".select-tasks");
+let claimTaskButton = document.querySelector(".claim-task");
 const socket = io();
 
 addTaskForm.addEventListener("submit", e => {
@@ -14,7 +14,7 @@ addTaskForm.addEventListener("submit", e => {
     task_instruction: taskInstruction.value
   };
   console.log(taskData);
-  socket.emit("new task", taskData);
+
   fetch("/employee", {
     method: "POST",
     headers: {
@@ -24,22 +24,27 @@ addTaskForm.addEventListener("submit", e => {
       taskTitle: taskTitle.value,
       taskInstruction: taskInstruction.value
     })
-  });
+  })
+    .then(response => {
+      return response.json();
+    })
+    .then(res => {
+      taskData["task_id"] = res;
+      socket.emit("new task", taskData);
+    });
 });
 
 socket.on("new task", taskData => {
+  let claimTaskButton = document.querySelector(".claim-task");
   console.log("client received new task");
-  let existingHTML = taskContainer.innerHTML;
-  console.log(existingHTML);
   let output = "";
-  output += `<div class="task">`;
-  output += `<h1 class="task-div">${taskData.task_title}</h1>`;
-  output += `<div>${taskData.task_instruction}</div>`;
-  output += `<button class="claim-task">`;
-  output += `Claim Task`;
-  output += `</button>`;
-  output += `</div>`;
-  let updatedHTML = existingHTML + output;
-  console.log(updatedHTML);
-  taskContainer.innerHTML = updatedHTML;
+  output += `<input
+    class="messageCheckbox"
+    type="radio"
+    name="tasks"
+    value="${taskData.task_id}"
+    id="${taskData.task_id}"
+  />`;
+  output += `<label for="${taskData.task_id}"> ${taskData.task_title}</label><br />`;
+  claimTaskButton.insertAdjacentHTML("beforebegin", output);
 });

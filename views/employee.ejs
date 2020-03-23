@@ -74,19 +74,23 @@
             </ul>
           </div>
         </nav>
-        <div class="container-fluid">
-          <h1 class="mt-4 content-title"><%= department_title %> Tasks</h1>
-          <div class="task-container">
+        <div class="task-container">
+          <h2>Unclaimed Tasks:</h2>
+          <form class="select-tasks">
             <% taskInfo.forEach((task)=>{ %>
-            <div class="task">
-              <h1 class="task-div"><%= task.task_title %></h1>
-              <div><%= task.task_instruction %></div>
-              <button class="claim-task">
-                Claim Task
-              </button>
-            </div>
+            <input
+              type="checkbox"
+              name="<%= task.id %>"
+              value="<%= task.id %>"
+              id="<%= task.id %>"
+            />
+            <label for="<%= task.id %>"> <%= task.task_title %></label><br />
             <% }) %>
-          </div>
+            <button class="claim-task" value="submit" type="submit">
+              Claim Task(s)
+            </button>
+          </form>
+        </div>
 
           <div>
             <form id="form" class="form add-task-form">
