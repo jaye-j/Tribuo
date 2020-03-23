@@ -312,6 +312,7 @@ h2 {
 }
 
 .answer {
+  font-family: 'Baloo Tamma 2', cursive;
   color: white;
   padding: 10px;
   text-decoration: none;
@@ -319,6 +320,7 @@ h2 {
 }
 
 .bg-lightgray {
+  font-family: 'Baloo Tamma 2', cursive;
   width: 100%;
   background-color: transparent;
   padding: 25px;
@@ -326,6 +328,7 @@ h2 {
   text-align: center;
 }
 .bg-white {
+  font-family: 'Baloo Tamma 2', cursive;
   width: 100%;
   background-color: transparent;
   padding: 25px;
