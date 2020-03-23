@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Tribuo - Admin Dashboard</title>
+    <title>Tribuo - <%= employee_first_name %> <%= employee_last_name %></title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -36,10 +36,10 @@
                 <img class="profileimg" src="http://placecorgi.com/180/180" alt="">
               </div>
               <div class="profilecontent-con">
-                <h6 class="profilecontent">John Smith</h6>
+                <h6 class="profilecontent"><%= employee_first_name %> <%= employee_last_name %></h6>
               </div>
               <div class="profilecontent-con">
-                <p class="profilecontent profilesize">Department</p>
+                <p class="profilecontent profilesize"><%= department_title %></p>
               </div>
               <a href="#" style="color: white; text-decoration: none;" class="list-group-items list-group-items-action bordertop"><i class="iconColor fas fa-tasks"></i></a>
               <a href="#" style="color: white; text-decoration: none;" class="list-group-items list-group-items-action bordertop"><i class="iconColor far fa-comments"></i></a>
@@ -53,7 +53,7 @@
             <!-- navbar -->
             <div class="main-navbar-container">
               <nav class="navbar navbar-light bggreen borderbot">
-                <div style="color: white; text-align: center; font-size: 20px; padding-top: 5px;" class="font-baloo">Hello, John</div>
+                <div style="color: white; text-align: center; font-size: 20px; padding-top: 5px;" class="font-baloo">Hello, <%= employee_first_name %></div>
                 <div class="top-navbar">
                     <button class="logoutbtn" id="menu-toggle">Sign out</button>
                 </div>
