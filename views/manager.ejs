@@ -77,20 +77,8 @@
             </ul>
           </div>
         </nav>
-        <div class="container-fluid">
-          <h1 class="mt-4 content-title"><%= department_title %> Tasks</h1>
-          <div class="task-container">
-            <% taskInfo.forEach((task)=>{ %>
-            <div class="task">
-              <h1 class="task-div"><%= task.task_title %></h1>
-              <div><%= task.task_instruction %></div>
-              <button class="claim-task">
-                Claim Task
-              </button>
-            </div>
-            <% }) %>
-          </div>
 
+        <div class="container-fluid">
           <div>
             <form id="form" class="form add-task-form">
               <h3>Add a task</h3>
@@ -122,6 +110,57 @@
                 style="margin-top: 5px;"
               >
                 Submit
+              </button>
+            </form>
+          </div>
+          <!-- <h1 class="mt-4 content-title"><%= department_title %> Tasks</h1> -->
+          <div class="task-container">
+            <h2>Unclaimed Tasks:</h2>
+            <form class="select-tasks">
+              <% taskInfo.forEach((task)=>{ %>
+              <input
+                class="messageCheckbox"
+                type="radio"
+                name="tasks"
+                value="<%= task.id %>"
+                id="<%= task.id %>"
+              />
+              <label for="<%= task.id %>"> <%= task.task_title %></label><br />
+              <% }) %>
+              <button class="claim-task" value="submit" type="submit">
+                Assign task
+              </button>
+            </form>
+            <h2>Claimed Tasks:</h2>
+            <form class="select-tasks">
+              <% inProgress.forEach((task)=>{ %>
+              <input
+                class="messageCheckbox"
+                type="radio"
+                name="tasks"
+                value="<%= task.id %>"
+                id="<%= task.id %>"
+              />
+              <label for="<%= task.id %>"> <%= task.task_title %></label><br />
+              <% }) %>
+              <button class="claim-task" value="submit" type="submit">
+                Assign task
+              </button>
+            </form>
+            <h2>Tasks needing approval:</h2>
+            <form class="select-tasks">
+              <% completed.forEach((task)=>{ %>
+              <input
+                class="messageCheckbox"
+                type="radio"
+                name="tasks"
+                value="<%= task.id %>"
+                id="<%= task.id %>"
+              />
+              <label for="<%= task.id %>"> <%= task.task_title %></label><br />
+              <% }) %>
+              <button class="claim-task" value="submit" type="submit">
+                Assign task
               </button>
             </form>
           </div>
