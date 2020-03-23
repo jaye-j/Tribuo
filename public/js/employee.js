@@ -52,6 +52,7 @@ socket.on("new task", taskData => {
 taskContainer.addEventListener("submit", e => {
   e.preventDefault();
   let inputElements = document.getElementsByClassName("messageCheckbox");
+  let specificTaskDisplay = document.querySelector(".our-tasks");
   let checkedValue = null;
   for (var i = 0; inputElements[i]; ++i) {
     if (inputElements[i].checked) {
@@ -69,9 +70,21 @@ taskContainer.addEventListener("submit", e => {
     body: JSON.stringify({
       selectedTask: checkedValue
     })
-  }).then(() => {
-    socket.emit("claimed task", checkedValue);
-  });
+  })
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      //code for displaying the added task through the append which takes the data for the task from the response.
+      let output = "";
+      output += ``;
+      output += ``;
+      output += ``;
+      output += ``;
+      output += ``;
+      specificTaskDisplay.appendChild();
+      socket.emit("claimed task", checkedValue);
+    });
 });
 
 socket.on("claimed task", checkedValue => {
