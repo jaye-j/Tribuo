@@ -18,7 +18,7 @@ let auth = (req, res, next) => {
   }
 };
 
-router.get('/', auth, (req, res) => {
+router.get('/login', auth, (req, res) => {
   res.render('login');
 });
 router.use(cookieParser());
