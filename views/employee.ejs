@@ -36,7 +36,7 @@
     <div class="container-fluid">
       <div class="row">
         <!-- sidebar -->
-        <div class="col-3 pr-0 mr-0 bggreen borderR" id="sidebar-wrapper">
+        <div class="col-3 pl-0 pr-0 mr-0 bggreen borderR" id="sidebar-wrapper">
           <div class="centerimg sidebar-heading">
             <img
               class="logo borderbot centerimg"
@@ -122,10 +122,9 @@
                     value="<%= task.id %>"
                     id="<%= task.id %>"
                   />
-                  <label for="<%= task.id %>"> <%= task.task_title %></label>
-                  <br />
-                  <% }) %>
-                  <br />
+                  <label for="<%= task.id %>"> <%= task.task_title %></label
+                  ><br />
+                  <% }) %> <br />
                   <button
                     class="claim-task onpagebtn"
                     value="submit"
