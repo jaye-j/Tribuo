@@ -5,6 +5,13 @@ const bcrypt = require('bcryptjs');
 let db = require('../models');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+router.use(cookieParser());
+router.use(
+  session({
+    secret: 'Tribuo',
+    cookie: { secure: false, maxAge: 5 * 24 * 60 * 60 * 1000 }
+  })
+);
 
 let auth = (req, res, next) => {
   if (req.session.is_admin) {
@@ -17,14 +24,6 @@ let auth = (req, res, next) => {
     next();
   }
 };
-
-router.use(cookieParser());
-router.use(
-  session({
-    secret: 'Tribuo',
-    cookie: { secure: false, maxAge: 5 * 24 * 60 * 60 * 1000 }
-  })
-);
 
 router.get('/adminlogin', auth, (req, res) => {
   res.render('adminlogin');
