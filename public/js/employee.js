@@ -3,6 +3,7 @@ let taskContainer = document.querySelector(".select-tasks");
 let claimTaskButton = document.querySelector(".claim-task");
 let submitTaskButton = document.querySelector(".finish-task");
 let submitTaskForm = document.querySelector(".select-specific-tasks");
+let logOutBtn = document.querySelector(".logoutbtn");
 
 const socket = io();
 
@@ -138,4 +139,11 @@ submitTaskForm.addEventListener("submit", e => {
   instructions.remove();
   submitTask.remove();
   labelForTask.remove();
+});
+
+logOutBtn.addEventListener("click", e => {
+  console.log("logout button clicked");
+  fetch("/employeelogout", {
+    method: "GET"
+  });
 });
