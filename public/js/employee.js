@@ -3,7 +3,6 @@ let claimTaskForm = document.querySelector(".select-tasks");
 let claimTaskButton = document.querySelector(".claim-task");
 let submitTaskButton = document.querySelector(".finish-task");
 let submitTaskForm = document.querySelector(".select-specific-tasks");
-let assignTaskButton = document.querySelector(".assign-task");
 let completedTaskButton = document.querySelector(".complete-task");
 let logOutBtn = document.querySelector(".logoutbtn");
 

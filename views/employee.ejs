@@ -94,7 +94,11 @@
                   Hello, <%= employee_first_name %>
                 </div>
                 <div class="top-navbar">
-                  <button class="logoutbtn" id="menu-toggle">Sign out</button>
+                  <a href="/"
+                    ><button class="logoutbtn" id="menu-toggle">
+                      Sign out
+                    </button></a
+                  >
                 </div>
               </nav>
             </div>
@@ -220,9 +224,9 @@
 
     <!-- Menu Toggle Script -->
     <script>
-      $("#menu-toggle").click(function(e) {
+      $('#menu-toggle').click(function(e) {
         e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+        $('#wrapper').toggleClass('toggled');
       });
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

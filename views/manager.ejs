@@ -36,7 +36,7 @@
     <div class="container-fluid">
       <div class="row">
         <!-- sidebar -->
-        <div class="col-3 pr-0 mr-0 bggreen borderR" id="sidebar-wrapper">
+        <div class="col-3 pl-0 pr-0 mr-0 bggreen borderR" id="sidebar-wrapper">
           <div class="centerimg sidebar-heading">
             <img
               class="logo borderbot centerimg"
@@ -58,10 +58,10 @@
               </h6>
             </div>
             <div class="profilecontent-con">
-              <p class="profilecontent profilesize">Manager</p>
+              <p class="profilecontent profilesize"><%= department_title %></p>
             </div>
             <div class="profilecontent-con">
-              <p class="profilecontent profilesize"><%= department_title %></p>
+              <p class="profilecontent profilesize">Manager</p>
             </div>
             <a
               href="#"
@@ -97,12 +97,17 @@
                   Hello, <%= employee_first_name %>
                 </div>
                 <div class="top-navbar">
-                  <button class="logoutbtn" id="menu-toggle">Sign out</button>
+                  <a href="/"
+                    ><button class="logoutbtn" id="menu-toggle">
+                      Sign out
+                    </button></a
+                  >
                 </div>
               </nav>
             </div>
             <!-- /navbar -->
           </div>
+          <div class="row employeedashboardcontent mr-0">
           <div class="container dash-content content-border some-content">
             <div class="employee-container">
               <form id="form" class="form add-task-form">
@@ -110,24 +115,27 @@
                   Add A Task:
                 </h3>
 
-                <div class="form-control" style="height: auto; width: 100%;">
+                <div class="form-group" style="height: auto; width: 100%;">
                   <label for="department">Task Title: </label><br />
-                  <input
+                  <textarea
+                    class="form-control"
                     type="text"
                     id="task_title"
                     name="task_title"
                     placeholder="Enter a title for the task."
-                    size="50"
-                  /><br /><br />
+                    cols="30"
+                    rows="1"
+                  ></textarea><br><br>
                   <label for="department">Task Instructions: </label><br />
                   <textarea
+                    class="form-control"
                     type="text"
                     id="task_instruction"
                     name="task_instruction"
                     placeholder="Enter Instructions."
-                    size="100"
-                  >
-                  </textarea>
+                    cols="30"
+                    rows="2"
+                  ></textarea>
                 </div>
 
                 <button
@@ -141,6 +149,7 @@
               </form>
             </div>
           </div>
+        </div>
           <div class="row employeedashboardcontent mr-0">
             <div class="container dash-content content-border some-content">
               <div class="employee-container">
@@ -150,6 +159,8 @@
 
                 <form class="select-tasks">
                   <% taskInfo.forEach((task)=>{ %>
+                    <div class="bordertopred">
+                      <br>
                   <input
                     class="messageCheckbox"
                     type="radio"
@@ -158,12 +169,15 @@
                     id="<%= task.id %>"
                   />
                   <label for="<%= task.id %>"> <%= task.task_title %></label
-                  ><br />
+                  >
+                  </div>
+                  <br>
                   <% }) %>
                   <select name="" id="">
                     <option value="placeholder">Select an employee.</option>
-                  </select>
+                  </select><br>
                   <button
+                  style="margin-top: 15px;"
                     class="assign-task onpagebtn"
                     value="submit"
                     type="submit"
@@ -181,11 +195,11 @@
                   <%= department_title %> tasks being worked on:
                 </h3>
 
-                <ul>
+                <ul class="removeulbullets">
                   <% inProgress.forEach((task)=>{ %>
-
-                  <li><%= task.task_title %></li>
-                  <br />
+              
+                  <li class="libordertopyellow"><br><%= task.task_title %></li>
+                  <br>
                   <% }) %>
                 </ul>
               </div>
@@ -198,20 +212,26 @@
                   Tasks awaiting approval:
                 </h3>
 
-                <form class="select-tasks">
+
+                <form class="select-tasks-manager-approval">
+
                   <% completed.forEach((task)=>{ %>
+                    <div class="bordertopgreen">
+                      <br>
                   <input
-                    class="messageCheckbox"
+                    class="messageCheckboxComplete"
                     type="radio"
-                    name="tasks"
+                    name="taskscomplete"
                     value="<%= task.id %>"
                     id="<%= task.id %>"
                   />
                   <label for="<%= task.id %>"> <%= task.task_title %></label
-                  ><br />
+                  >
+                  </div>
+                <br>
                   <% }) %>
                   <button
-                    class="complete-task onpagebtn"
+                    class="complete-task-managerbtn onpagebtn"
                     value="submit"
                     type="submit"
                   >
@@ -226,12 +246,12 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
+    <script src="/js/manager.js"></script>
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-    <script src="/js/employee.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
