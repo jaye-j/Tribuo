@@ -177,6 +177,11 @@ h2 {
   font-size: 1.6rem;
   color: white;
 }
+.subtitlefont4{
+  font-family: 'Baloo Tamma 2', cursive;
+  font-size: 2rem;
+  color: white;
+}
 
 .namesfont{
   font-family: 'Baloo Tamma 2', cursive;
@@ -286,7 +291,7 @@ ul {
   flex-flow: column;
   justify-content: center;
   align-items:center;
-  margin-top: 5rem;
+  margin-top: .8rem;
 }
 
 .buttons{
