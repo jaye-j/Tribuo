@@ -43,7 +43,7 @@ router.post("/registration", (req, res) => {
             employee_password: passwordEncrypted
           })
           .then(newEmployee => {
-            res.redirect("/");
+            res.redirect("/login");
           })
           .catch(error => {
             res.render("registration", {

@@ -1,3 +1,4 @@
+
 let addTaskForm = document.querySelector('.add-task-form');
 let taskContainer = document.querySelector('.select-tasks');
 let claimTaskButton = document.querySelector('.claim-task');
@@ -6,6 +7,7 @@ let submitTaskForm = document.querySelector('.select-specific-tasks');
 let assignTaskButton = document.querySelector('.assign-task');
 let completedTaskButton = document.querySelector('.complete-task');
 let logOutBtn = document.querySelector('.logoutbtn');
+
 
 const socket = io();
 
@@ -45,7 +47,7 @@ socket.on('new task', taskData => {
   console.log('client received new task');
   let output = '';
   output += `<input
-    class="messageCheckbox"
+    class="messageSubmitCheckbox"
     type="radio"
     name="tasks"
     value="${taskData.task_id}"
@@ -143,9 +145,10 @@ submitTaskForm.addEventListener('submit', e => {
   labelForTask.remove();
 });
 
-logOutBtn.addEventListener('click', e => {
-  console.log('logout button clicked');
-  fetch('/employeelogout', {
-    method: 'GET'
+
+logOutBtn.addEventListener("click", e => {
+  console.log("logout button clicked");
+  fetch("/employeelogout", {
+    method: "GET"
   });
 });
