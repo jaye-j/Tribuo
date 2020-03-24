@@ -122,7 +122,7 @@
                   ><br />
                   <% }) %>
                   <button
-                    class="claim-task logoutbtn"
+                    class="claim-task onpagebtn"
                     value="submit"
                     type="submit"
                   >
@@ -163,7 +163,7 @@
                   <button
                     value="submit"
                     type="submit"
-                    class="add-task logoutbtn"
+                    class="add-task onpagebtn"
                     style="margin-top: 5px;"
                   >
                     Submit
@@ -175,32 +175,34 @@
             <!-- content side right -->
           </div>
           <div class="row employeedashboardcontent mr-0">
-            <div class="your-tasks">
-              <div class="mt-4 content-title">
-                <div class="container dash-content content-border some-content">
-                  <div class="employee-container">
-                    <h3 style="color: #006CF8;" class="font-baloo">
-                      <%= employee_first_name %>'s Tasks:
-                    </h3>
-                    <form class="select-specific-tasks">
-                      <% specificTaskInfo.forEach((specificTask)=>{ %>
-                      <input
-                        class="messageSubmitCheckbox"
-                        type="radio"
-                        name="specificTasks"
-                        value="<%= specificTask.id %>"
-                        id="<%= specificTask.id %>"
-                      />
-                      <label for="<%= specificTask.id %>">
-                        <%= specificTask.task_title %></label
-                      >
-                      <div><%= specificTask.task_instruction %></div>
-                      <% }) %>
-                      <button class="finish-task" value="submit" type="submit">
-                        Submit Task
-                      </button>
-                    </form>
-                  </div>
+            <div class="container dash-content content-border some-content">
+              <div class="your-tasks">
+                <div class="employee-container">
+                  <h3 style="color: #006CF8;" class="font-baloo">
+                    <%= employee_first_name %>'s Tasks:
+                  </h3>
+                  <form class="select-specific-tasks">
+                    <% specificTaskInfo.forEach((specificTask)=>{ %>
+                    <input
+                      class="messageSubmitCheckbox"
+                      type="radio"
+                      name="specificTasks"
+                      value="<%= specificTask.id %>"
+                      id="<%= specificTask.id %>"
+                    />
+                    <label for="<%= specificTask.id %>">
+                      <%= specificTask.task_title %></label
+                    >
+                    <div><%= specificTask.task_instruction %></div>
+                    <% }) %>
+                    <button
+                      class="finish-task onpagebtn"
+                      value="submit"
+                      type="submit"
+                    >
+                      Finish Task
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>

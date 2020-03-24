@@ -1,179 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= employee_first_name %> <%= employee_last_name %></title>
+    <title>Tribuo - <%= employee_first_name %> <%= employee_last_name %></title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/2100570a36.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Tamma+2:700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Bootstrap CSS -->
+    <!-- styling -->
     <link rel="stylesheet" href="/style/style.css" />
-
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
   </head>
   <body>
-    <div class="d-flex bgblue" id="wrapper">
-      <!-- Sidebar -->
-      <div class="bggreen borderR" id="sidebar-wrapper">
-        <div class="sidebar-heading">
-          <img class="logo borderbot" src="/images/TRIBUO.png" alt="" />
-        </div>
-        <div class="list-group list-group-flush bggreen">
-          <div class="profileimg-container bggreen">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- sidebar -->
+        <div class="col-3 pr-0 mr-0 bggreen borderR" id="sidebar-wrapper">
+          <div class="centerimg sidebar-heading">
             <img
-              class="profileimg"
-              src="http://placecorgi.com/180/180"
+              class="logo borderbot centerimg"
+              src="/images/TRIBUO.png"
               alt=""
             />
           </div>
-          <div class="profilecontent-con">
-            <h6 class="profilecontent">
-              <%= employee_first_name %> <%= employee_last_name %>
-            </h6>
+          <div class="list-group list-group-flush bggreen">
+            <div class="profileimg-container bggreen">
+              <img
+                class="profileimg"
+                src="http://placecorgi.com/180/180"
+                alt=""
+              />
+            </div>
+            <div class="profilecontent-con">
+              <h6 class="profilecontent">
+                <%= employee_first_name %> <%= employee_last_name %>
+              </h6>
+            </div>
+            <div class="profilecontent-con">
+              <p class="profilecontent profilesize">Manager</p>
+            </div>
+            <div class="profilecontent-con">
+              <p class="profilecontent profilesize"><%= department_title %></p>
+            </div>
+            <a
+              href="#"
+              style="color: white; text-decoration: none;"
+              class="list-group-items list-group-items-action bordertop"
+              ><i class="iconColor fas fa-tasks"></i
+            ></a>
+            <a
+              href="#"
+              style="color: white; text-decoration: none;"
+              class="list-group-items list-group-items-action bordertop"
+              ><i class="iconColor far fa-comments"></i
+            ></a>
+            <a
+              href="#"
+              style="color: white; text-decoration: none;"
+              class="list-group-items list-group-items-action bordertop borderbot"
+              ><i class="iconColor fas fa-users"></i
+            ></a>
           </div>
-          <div class="profilecontent-con">
-            <p class="profilecontent profilesize">Manager of:</p>
-          </div>
-          <div class="profilecontent-con">
-            <p class="profilecontent profilesize"><%= department_title %></p>
-          </div>
-          <a
-            href="#"
-            style="color: white; text-decoration: none;"
-            class="list-group-items list-group-items-action bordertop"
-            >Tasks</a
-          >
-          <a
-            href="#"
-            style="color: white; text-decoration: none;"
-            class="list-group-items list-group-items-action bordertop"
-            >Chat</a
-          >
-          <a
-            href="#"
-            style="color: white; text-decoration: none;"
-            class="list-group-items list-group-items-action bordertop borderbot"
-            >Members</a
-          >
         </div>
-      </div>
-      <!-- /#sidebar-wrapper -->
-
-      <!-- Page Content -->
-      <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bggreen borderbot">
-          <div style="color: white;">Hello, <%= employee_first_name %></div>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-              <button class="logoutbtn" id="menu-toggle">Sign out</button>
-            </ul>
-          </div>
-        </nav>
-
-        <div class="container-fluid">
-          <div>
-            <form id="form" class="form add-task-form">
-              <h3>Add a task</h3>
-
-              <div class="form-control" style="height: 80px;">
-                <label for="department">Task Title </label>
-                <input
-                  type="text"
-                  id="task_title"
-                  name="task_title"
-                  placeholder="Enter a title for the task."
-                  size="50"
-                />
-                <label for="department">Task Instructions </label>
-                <textarea
-                  type="text"
-                  id="task_instruction"
-                  name="task_instruction"
-                  placeholder="Enter Instructions."
-                  size="100"
+        <!-- /sidebar -->
+        <!-- page content -->
+        <div class="col-9" style="padding-right: -15px;">
+          <div class="row nav-row">
+            <!-- navbar -->
+            <div class="main-navbar-container">
+              <nav class="navbar navbar-light bggreen borderbot">
+                <div
+                  style="color: white; text-align: center; font-size: 20px; padding-top: 5px;"
+                  class="font-baloo"
                 >
-                </textarea>
-              </div>
-
-              <button
-                value="submit"
-                type="submit"
-                class="add-task"
-                style="margin-top: 5px;"
-              >
-                Submit
-              </button>
-            </form>
+                  Hello, <%= employee_first_name %>
+                </div>
+                <div class="top-navbar">
+                  <button class="logoutbtn" id="menu-toggle">Sign out</button>
+                </div>
+              </nav>
+            </div>
+            <!-- /navbar -->
           </div>
-          <!-- <h1 class="mt-4 content-title"><%= department_title %> Tasks</h1> -->
-          <div class="task-container">
-            <h2>Unclaimed Tasks:</h2>
-            <form class="select-tasks">
-              <% taskInfo.forEach((task)=>{ %>
-              <input
-                class="messageCheckbox"
-                type="radio"
-                name="tasks"
-                value="<%= task.id %>"
-                id="<%= task.id %>"
-              />
-              <label for="<%= task.id %>"> <%= task.task_title %></label><br />
-              <% }) %>
-              <button class="claim-task" value="submit" type="submit">
-                Assign task
-              </button>
-            </form>
-            <h2>Claimed Tasks:</h2>
-            <form class="select-tasks">
-              <% inProgress.forEach((task)=>{ %>
-              <input
-                class="messageCheckbox"
-                type="radio"
-                name="tasks"
-                value="<%= task.id %>"
-                id="<%= task.id %>"
-              />
-              <label for="<%= task.id %>"> <%= task.task_title %></label><br />
-              <% }) %>
-              <button class="claim-task" value="submit" type="submit">
-                Assign task
-              </button>
-            </form>
-            <h2>Tasks needing approval:</h2>
-            <form class="select-tasks">
-              <% completed.forEach((task)=>{ %>
-              <input
-                class="messageCheckbox"
-                type="radio"
-                name="tasks"
-                value="<%= task.id %>"
-                id="<%= task.id %>"
-              />
-              <label for="<%= task.id %>"> <%= task.task_title %></label><br />
-              <% }) %>
-              <button class="claim-task" value="submit" type="submit">
-                Assign task
-              </button>
-            </form>
+          <div class="container dash-content content-border some-content">
+            <div class="employee-container">
+              <form id="form" class="form add-task-form">
+                <h3 style="color: #006CF8;" class="font-baloo">
+                  Add A Task:
+                </h3>
+
+                <div class="form-control" style="height: auto; width: 100%;">
+                  <label for="department">Task Title: </label><br />
+                  <input
+                    type="text"
+                    id="task_title"
+                    name="task_title"
+                    placeholder="Enter a title for the task."
+                    size="50"
+                  /><br /><br />
+                  <label for="department">Task Instructions: </label><br />
+                  <textarea
+                    type="text"
+                    id="task_instruction"
+                    name="task_instruction"
+                    placeholder="Enter Instructions."
+                    size="100"
+                  >
+                  </textarea>
+                </div>
+
+                <button
+                  value="submit"
+                  type="submit"
+                  class="add-task onpagebtn"
+                  style="margin-top: 5px;"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="row employeedashboardcontent mr-0">
+            <div class="container dash-content content-border some-content">
+              <div class="employee-container">
+                <h3 style="color: #006CF8;" class="font-baloo">
+                  <%= department_title %>'s unassigned tasks:
+                </h3>
+
+                <form class="select-tasks">
+                  <% taskInfo.forEach((task)=>{ %>
+                  <input
+                    class="messageCheckbox"
+                    type="radio"
+                    name="tasks"
+                    value="<%= task.id %>"
+                    id="<%= task.id %>"
+                  />
+                  <label for="<%= task.id %>"> <%= task.task_title %></label
+                  ><br />
+                  <% }) %>
+                  <select name="" id="">
+                    <option value="placeholder">Select an employee.</option>
+                  </select>
+                  <button
+                    class="assign-task onpagebtn"
+                    value="submit"
+                    type="submit"
+                  >
+                    Assign Task
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="row employeedashboardcontent mr-0">
+            <div class="container dash-content content-border some-content">
+              <div class="employee-container">
+                <h3 style="color: #006CF8;" class="font-baloo">
+                  <%= department_title %> tasks being worked on:
+                </h3>
+
+                <ul>
+                  <% inProgress.forEach((task)=>{ %>
+
+                  <li><%= task.task_title %></li>
+                  <br />
+                  <% }) %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row employeedashboardcontent mr-0">
+            <div class="container dash-content content-border some-content">
+              <div class="employee-container">
+                <h3 style="color: #006CF8;" class="font-baloo">
+                  Tasks awaiting approval:
+                </h3>
+
+                <form class="select-tasks">
+                  <% completed.forEach((task)=>{ %>
+                  <input
+                    class="messageCheckbox"
+                    type="radio"
+                    name="tasks"
+                    value="<%= task.id %>"
+                    id="<%= task.id %>"
+                  />
+                  <label for="<%= task.id %>"> <%= task.task_title %></label
+                  ><br />
+                  <% }) %>
+                  <button
+                    class="complete-task onpagebtn"
+                    value="submit"
+                    type="submit"
+                  >
+                    Mark As Complete
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- /#page-content-wrapper -->
     </div>
-    <!-- /#wrapper -->
-    <script src="/js/employee.js"></script>
+
     <!-- Bootstrap core JavaScript -->
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="/js/employee.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
