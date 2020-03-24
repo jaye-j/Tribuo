@@ -45,7 +45,7 @@ socket.on("new task", taskData => {
   console.log("client received new task");
   let output = "";
   output += `<input
-    class="messageSubmitCheckbox"
+    class="messageCheckbox"
     type="radio"
     name="tasks"
     value="${taskData.task_id}"
@@ -58,7 +58,7 @@ socket.on("new task", taskData => {
 claimTaskForm.addEventListener("submit", e => {
   e.preventDefault();
   console.log(e);
-  let inputElements = document.getElementsByClassName("messageSubmitCheckbox");
+  let inputElements = document.getElementsByClassName("messageCheckbox");
   let specificTaskDisplay = document.querySelector(".our-tasks");
   let checkedValue = null;
   let claimedInfo = [];
@@ -101,7 +101,7 @@ socket.on("claimed task", data => {
   if (employee_id == data[1].employee_id) {
     let output = "";
     output += `<input
-      class="messageCheckbox"
+      class="messageSubmitCheckbox"
       type="radio"
       name="specificTasks"
       value="${data[1].id}"
