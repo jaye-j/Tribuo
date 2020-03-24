@@ -97,7 +97,11 @@
                   Hello, <%= employee_first_name %>
                 </div>
                 <div class="top-navbar">
-                  <button class="logoutbtn" id="menu-toggle">Sign out</button>
+                  <a href="/"
+                    ><button class="logoutbtn" id="menu-toggle">
+                      Sign out
+                    </button></a
+                  >
                 </div>
               </nav>
             </div>
@@ -207,15 +211,17 @@
                 <h3 style="color: #006CF8;" class="font-baloo">
                   Tasks awaiting approval:
                 </h3>
-                
-                <form class="select-tasks">
+
+
+                <form class="select-tasks-manager-approval">
+
                   <% completed.forEach((task)=>{ %>
                     <div class="bordertopgreen">
                       <br>
                   <input
-                    class="messageCheckbox"
+                    class="messageCheckboxComplete"
                     type="radio"
-                    name="tasks"
+                    name="taskscomplete"
                     value="<%= task.id %>"
                     id="<%= task.id %>"
                   />
@@ -225,7 +231,7 @@
                 <br>
                   <% }) %>
                   <button
-                    class="complete-task onpagebtn"
+                    class="complete-task-managerbtn onpagebtn"
                     value="submit"
                     type="submit"
                   >
@@ -240,12 +246,12 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
+    <script src="/js/manager.js"></script>
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-    <script src="/js/employee.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>

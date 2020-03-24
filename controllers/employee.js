@@ -59,15 +59,15 @@ router.get('/employee', (req, res) => {
     });
 });
 
-router.get("/employeelogout", (req, res, next) => {
-  console.log("log out post recieved");
+router.get('/employeelogout', (req, res, next) => {
+  console.log('log out post recieved');
   if (req.session) {
     // delete session object
     req.session.destroy(err => {
       if (err) {
         next(err);
       } else {
-        return res.redirect("/");
+        return res.redirect('/');
       }
     });
   }
@@ -106,26 +106,24 @@ router.post('/employeeselectedtask', (req, res) => {
   });
 });
 
-router.post("/employeecompletedtask", (req, res) => {
+router.post('/employeecompletedtask', (req, res) => {
   let completedTask = req.body.completedTask;
-  let id = req.session.employee_id;
 
   db.tasks.findByPk(completedTask).then(taskselected => {
-    taskselected.task_status = "Completed";
+    taskselected.task_status = 'true';
     taskselected.save();
   });
 });
 
-
-router.get("/employeelogout", (req, res, next) => {
-  console.log("log out post recieved");
+router.get('/employeelogout', (req, res, next) => {
+  console.log('log out post recieved');
   if (req.session) {
     // delete session object
     req.session.destroy(err => {
       if (err) {
         next(err);
       } else {
-        return res.redirect("/");
+        return res.redirect('/');
       }
     });
   }
