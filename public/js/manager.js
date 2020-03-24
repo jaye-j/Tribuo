@@ -27,6 +27,14 @@ completedTaskForm.addEventListener('submit', e => {
       completedTask: checkedValue
     })
   });
+  let submitTask = document.getElementById(`${checkedValue}`);
+  let labelForTask = submitTask.labels[0];
+  let instructions = submitTask.labels[0].nextElementSibling;
+  console.log(submitTask);
+  console.log(labelForTask);
+  instructions.remove();
+  submitTask.remove();
+  labelForTask.remove();
 });
 
 logOutBtn.addEventListener('click', e => {
