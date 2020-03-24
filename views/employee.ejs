@@ -144,24 +144,27 @@
                 <form id="form" class="form add-task-form">
                   <h3 style="color: #006CF8;" class="font-baloo">Add Task:</h3>
 
-                  <div class="form-control" style="height: auto; width: 100%;">
+                  <div class="form-group" style="height: auto; width: 100%;">
                     <label for="department">Task Title: </label><br />
-                    <input
+                    <textarea
+                      class="form-control"
                       type="text"
                       id="task_title"
                       name="task_title"
                       placeholder="Enter a title for the task."
-                      size="50"
-                    /><br /><br />
+                      cols="30"
+                      rows="1"
+                    ></textarea><br /><br />
                     <label for="department">Task Instructions: </label><br />
                     <textarea
+                      class="form-control"
                       type="text"
                       id="task_instruction"
                       name="task_instruction"
                       placeholder="Enter Instructions."
-                      size="100"
-                    >
-                    </textarea>
+                      cols="30"
+                      rows="2"
+                    ></textarea>
                   </div>
 
                   <button
@@ -185,7 +188,8 @@
                   <h3 style="color: #006CF8;" class="font-baloo">
                     <%= employee_first_name %>'s Tasks:
                   </h3>
-                  <form class="select-specific-tasks">
+                  <form class="select-specific-tasks bordertoptasks">
+                    <br>
                     <% specificTaskInfo.forEach((specificTask)=>{ %>
                     <input
                       class="messageSubmitCheckbox"
@@ -197,7 +201,7 @@
                     <label for="<%= specificTask.id %>">
                       <%= specificTask.task_title %></label
                     >
-                    <div><%= specificTask.task_instruction %></div>
+                    <div><%= specificTask.task_instruction %></div><br>
                     <% }) %>
                     <button
                       class="finish-task onpagebtn"

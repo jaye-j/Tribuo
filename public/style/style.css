@@ -195,6 +195,10 @@ body {
   padding: 0;
 }
 
+.bordertoptasks{
+  border-top: solid 1px #006cf8;
+}
+
 @media screen and (min-width: 860px) {
   .admindashboardcontent {
     flex-flow: row;
