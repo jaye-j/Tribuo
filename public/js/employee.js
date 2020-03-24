@@ -1,13 +1,10 @@
-
 let addTaskForm = document.querySelector('.add-task-form');
 let taskContainer = document.querySelector('.select-tasks');
 let claimTaskButton = document.querySelector('.claim-task');
 let submitTaskButton = document.querySelector('.finish-task');
 let submitTaskForm = document.querySelector('.select-specific-tasks');
-let assignTaskButton = document.querySelector('.assign-task');
-let completedTaskButton = document.querySelector('.complete-task');
-let logOutBtn = document.querySelector('.logoutbtn');
 
+let logOutBtn = document.querySelector('.logoutbtn');
 
 const socket = io();
 
@@ -116,6 +113,7 @@ socket.on('claimed task', data => {
 });
 
 submitTaskForm.addEventListener('submit', e => {
+  console.log('hi');
   e.preventDefault();
   let inputElements = document.getElementsByClassName('messageSubmitCheckbox');
   let checkedValue = null;
@@ -145,10 +143,9 @@ submitTaskForm.addEventListener('submit', e => {
   labelForTask.remove();
 });
 
-
-logOutBtn.addEventListener("click", e => {
-  console.log("logout button clicked");
-  fetch("/employeelogout", {
-    method: "GET"
+logOutBtn.addEventListener('click', e => {
+  console.log('logout button clicked');
+  fetch('/employeelogout', {
+    method: 'GET'
   });
 });

@@ -28,12 +28,17 @@ router.get('/manager', (req, res) => {
       where: { department_id: department_id }
     })
     .then(results => {
+      console.log(results);
       let testing = results.forEach(element => {
         if (element.employee_id == null || false) {
           taskInfo.push(element);
         } else if (element.task_status == 'In progress') {
           inProgress.push(element);
-        } else if (element.task_status == 'Completed') {
+        } else if (
+          (element.task_status == 'Completed' &&
+            element.task_approval == null) ||
+          false
+        ) {
           completed.push(element);
         }
       });
@@ -57,6 +62,15 @@ router.get('/manager', (req, res) => {
           });
         });
     });
+});
+router.post('/managerapprovedtask', (req, res) => {
+  let completedTask = req.body.completedTask;
+
+  db.tasks.findByPk(completedTask).then(taskselected => {
+    console.log(taskselected);
+    taskselected.task_approval = 'true';
+    taskselected.save();
+  });
 });
 
 module.exports = router;
