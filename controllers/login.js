@@ -29,7 +29,7 @@ router.use(
   })
 );
 
-router.post('/', (req, res) => {
+router.post('/login', (req, res) => {
   let employee_email_address = req.body.email;
   let employee_password = req.body.password;
 
