@@ -177,6 +177,24 @@ body {
   width: 50%;
 }
 
+.libordertopyellow{
+  border-top: solid 1px yellow;
+}
+
+.bordertopgreen{
+  border-top: solid 1px limegreen;
+}
+
+.bordertopred{
+  border-top: solid 1px red;
+}
+
+.removeulbullets{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 @media screen and (min-width: 860px) {
   .admindashboardcontent {
     flex-flow: row;
