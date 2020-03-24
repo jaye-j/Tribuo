@@ -1,17 +1,18 @@
-let addTaskForm = document.querySelector('.add-task-form');
-let taskContainer = document.querySelector('.select-tasks');
-let claimTaskButton = document.querySelector('.claim-task');
-let submitTaskButton = document.querySelector('.finish-task');
-let submitTaskForm = document.querySelector('.select-specific-tasks');
-
-let logOutBtn = document.querySelector('.logoutbtn');
+let addTaskForm = document.querySelector(".add-task-form");
+let claimTaskForm = document.querySelector(".select-tasks");
+let claimTaskButton = document.querySelector(".claim-task");
+let submitTaskButton = document.querySelector(".finish-task");
+let submitTaskForm = document.querySelector(".select-specific-tasks");
+let completedTaskButton = document.querySelector(".complete-task");
+let logOutBtn = document.querySelector(".logoutbtn");
 
 const socket = io();
 
-addTaskForm.addEventListener('submit', e => {
+addTaskForm.addEventListener("submit", e => {
   e.preventDefault();
-  let taskTitle = document.querySelector('#task_title');
-  let taskInstruction = document.querySelector('#task_instruction');
+  console.log(e);
+  let taskTitle = document.querySelector("#task_title");
+  let taskInstruction = document.querySelector("#task_instruction");
   console.log(taskTitle.value);
   console.log(taskInstruction.value);
   let taskData = {
@@ -20,10 +21,10 @@ addTaskForm.addEventListener('submit', e => {
   };
   console.log(taskData);
 
-  fetch('/employee', {
-    method: 'POST',
+  fetch("/employee", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       taskTitle: taskTitle.value,
@@ -34,15 +35,15 @@ addTaskForm.addEventListener('submit', e => {
       return response.json();
     })
     .then(res => {
-      taskData['task_id'] = res;
-      socket.emit('new task', taskData);
+      taskData["task_id"] = res;
+      socket.emit("new task", taskData);
     });
 });
 
-socket.on('new task', taskData => {
-  let claimTaskButton = document.querySelector('.claim-task');
-  console.log('client received new task');
-  let output = '';
+socket.on("new task", taskData => {
+  let claimTaskButton = document.querySelector(".claim-task");
+  console.log("client received new task");
+  let output = "";
   output += `<input
     class="messageSubmitCheckbox"
     type="radio"
@@ -51,13 +52,14 @@ socket.on('new task', taskData => {
     id="${taskData.task_id}"
   />`;
   output += `<label for="${taskData.task_id}"> ${taskData.task_title}</label><br />`;
-  claimTaskButton.insertAdjacentHTML('beforebegin', output);
+  claimTaskButton.insertAdjacentHTML("beforebegin", output);
 });
 
-taskContainer.addEventListener('submit', e => {
+claimTaskForm.addEventListener("submit", e => {
   e.preventDefault();
-  let inputElements = document.getElementsByClassName('messageCheckbox');
-  let specificTaskDisplay = document.querySelector('.our-tasks');
+  console.log(e);
+  let inputElements = document.getElementsByClassName("messageSubmitCheckbox");
+  let specificTaskDisplay = document.querySelector(".our-tasks");
   let checkedValue = null;
   let claimedInfo = [];
   for (var i = 0; inputElements[i]; ++i) {
@@ -67,10 +69,10 @@ taskContainer.addEventListener('submit', e => {
     }
   }
   console.log(checkedValue);
-  fetch('/employeeselectedtask', {
-    method: 'POST',
+  fetch("/employeeselectedtask", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       selectedTask: checkedValue
@@ -81,14 +83,14 @@ taskContainer.addEventListener('submit', e => {
     })
     .then(response => {
       let sendData = [checkedValue, response];
-      socket.emit('claimed task', sendData);
+      socket.emit("claimed task", sendData);
       //code for displaying the added task through the append which takes the data for the task from the response.
       console.log(response);
     });
 });
 
-socket.on('claimed task', data => {
-  let employee_id = document.querySelector('.id-holder').id;
+socket.on("claimed task", data => {
+  let employee_id = document.querySelector(".id-holder").id;
   console.log(employee_id);
   let claimedTask = document.getElementById(`${data[0]}`);
   let labelForTask = claimedTask.labels[0];
@@ -97,7 +99,7 @@ socket.on('claimed task', data => {
   claimedTask.remove();
   labelForTask.remove();
   if (employee_id == data[1].employee_id) {
-    let output = '';
+    let output = "";
     output += `<input
       class="messageCheckbox"
       type="radio"
@@ -108,14 +110,14 @@ socket.on('claimed task', data => {
     output += `<label for="${data[1].id}">`;
     output += `${data[1].task_title}</label>`;
     output += `<div>${data[1].task_instruction}</div>`;
-    submitTaskButton.insertAdjacentHTML('beforebegin', output);
+    submitTaskButton.insertAdjacentHTML("beforebegin", output);
   }
 });
 
-submitTaskForm.addEventListener('submit', e => {
-  console.log('hi');
+submitTaskForm.addEventListener("submit", e => {
   e.preventDefault();
-  let inputElements = document.getElementsByClassName('messageSubmitCheckbox');
+  console.log(e);
+  let inputElements = document.getElementsByClassName("messageSubmitCheckbox");
   let checkedValue = null;
   for (var i = 0; inputElements[i]; ++i) {
     if (inputElements[i].checked) {
@@ -124,10 +126,10 @@ submitTaskForm.addEventListener('submit', e => {
     }
   }
   console.log(checkedValue);
-  fetch('/employeecompletedtask', {
-    method: 'POST',
+  fetch("/employeecompletedtask", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       completedTask: checkedValue
@@ -143,9 +145,9 @@ submitTaskForm.addEventListener('submit', e => {
   labelForTask.remove();
 });
 
-logOutBtn.addEventListener('click', e => {
-  console.log('logout button clicked');
-  fetch('/employeelogout', {
-    method: 'GET'
+logOutBtn.addEventListener("click", e => {
+  console.log("logout button clicked");
+  fetch("/employeelogout", {
+    method: "GET"
   });
 });
