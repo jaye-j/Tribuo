@@ -59,6 +59,20 @@ router.get("/employee", (req, res) => {
     });
 });
 
+router.get("/employeelogout", (req, res, next) => {
+  console.log("log out post recieved");
+  if (req.session) {
+    // delete session object
+    req.session.destroy(err => {
+      if (err) {
+        next(err);
+      } else {
+        return res.redirect("/");
+      }
+    });
+  }
+});
+
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
@@ -102,10 +116,18 @@ router.post("/employeecompletedtask", (req, res) => {
   });
 });
 
-router.get("/employeelogout", (req, res) => {
+router.get("/employeelogout", (req, res, next) => {
   console.log("log out post recieved");
-  req.session = null;
-  res.redirect("/");
+  if (req.session) {
+    // delete session object
+    req.session.destroy(err => {
+      if (err) {
+        next(err);
+      } else {
+        return res.redirect("/");
+      }
+    });
+  }
 });
 
 module.exports = router;

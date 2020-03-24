@@ -3,7 +3,7 @@ let taskContainer = document.querySelector(".select-tasks");
 let claimTaskButton = document.querySelector(".claim-task");
 let submitTaskButton = document.querySelector(".finish-task");
 let submitTaskForm = document.querySelector(".select-specific-tasks");
-let logOutBtn = document.querySelector(".logoutbtn");
+let logOutBtn = document.querySelector("#menu-toggle");
 
 const socket = io();
 
@@ -43,7 +43,7 @@ socket.on("new task", taskData => {
   console.log("client received new task");
   let output = "";
   output += `<input
-    class="messageCheckbox"
+    class="messageSubmitCheckbox"
     type="radio"
     name="tasks"
     value="${taskData.task_id}"
