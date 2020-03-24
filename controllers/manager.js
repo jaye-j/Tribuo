@@ -11,8 +11,19 @@ router.use(
     cookie: { secure: false, maxAge: 5 * 24 * 60 * 60 * 1000 }
   })
 );
+let auth = (req, res, next) => {
+  if (req.session.employee_email_address) {
+    if (req.session.is_manager == null || false) {
+      res.redirect('/employee');
+    } else {
+      next();
+    }
+  } else {
+    res.redirect('/login');
+  }
+};
 
-router.get('/manager', (req, res) => {
+router.get('/manager', auth, (req, res) => {
   let department_id = req.session.department_id;
   let employee_first_name = req.session.employee_first_name;
   let employee_last_name = req.session.employee_last_name;

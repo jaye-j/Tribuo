@@ -1,18 +1,18 @@
-let addTaskForm = document.querySelector(".add-task-form");
-let asssignTaskDropdown = document.querySelector(".select-tasks");
+let addTaskForm = document.querySelector('.add-task-form');
+let asssignTaskDropdown = document.querySelector('.select-tasks');
 const socket = io();
 
 let completedTaskForm = document.querySelector(
-  ".select-tasks-manager-approval"
+  '.select-tasks-manager-approval'
 );
-let assignTaskButton = document.querySelector(".assign-task");
-let logOutBtn = document.querySelector(".logoutbtn");
+let assignTaskButton = document.querySelector('.assign-task');
+let logOutBtn = document.querySelector('.logoutbtn');
 
-completedTaskForm.addEventListener("submit", e => {
+completedTaskForm.addEventListener('submit', e => {
   e.preventDefault();
-  console.log("hi");
+  console.log('hi');
   let inputElements = document.getElementsByClassName(
-    "messageCheckboxComplete"
+    'messageCheckboxComplete'
   );
   let checkedValue = null;
   for (var i = 0; inputElements[i]; ++i) {
@@ -22,10 +22,10 @@ completedTaskForm.addEventListener("submit", e => {
     }
   }
   console.log(checkedValue);
-  fetch("/managerapprovedtask", {
-    method: "POST",
+  fetch('/managerapprovedtask', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       completedTask: checkedValue
@@ -41,11 +41,11 @@ completedTaskForm.addEventListener("submit", e => {
   labelForTask.remove();
 });
 
-addTaskForm.addEventListener("submit", e => {
+addTaskForm.addEventListener('submit', e => {
   e.preventDefault();
   console.log(e);
-  let taskTitle = document.querySelector("#task_title");
-  let taskInstruction = document.querySelector("#task_instruction");
+  let taskTitle = document.querySelector('#task_title');
+  let taskInstruction = document.querySelector('#task_instruction');
   console.log(taskTitle.value);
   console.log(taskInstruction.value);
   let taskData = {
@@ -54,10 +54,10 @@ addTaskForm.addEventListener("submit", e => {
   };
   console.log(taskData);
 
-  fetch("/employee", {
-    method: "POST",
+  fetch('/employee', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       taskTitle: taskTitle.value,
@@ -68,15 +68,15 @@ addTaskForm.addEventListener("submit", e => {
       return response.json();
     })
     .then(res => {
-      taskData["task_id"] = res;
-      socket.emit("new task", taskData);
+      taskData['task_id'] = res;
+      socket.emit('new task', taskData);
     });
 });
 
-socket.on("new task", taskData => {
-  let asssignTaskDropdown = document.querySelector(".select-tasks");
-  console.log("client received new task");
-  let output = "";
+socket.on('new task', taskData => {
+  let asssignTaskDropdown = document.querySelector('.select-tasks');
+  console.log('client received new task');
+  let output = '';
   output += `<input
     class="messageCheckbox"
     type="radio"
@@ -85,12 +85,12 @@ socket.on("new task", taskData => {
     id="${taskData.task_id}"
   />`;
   output += `<label for="${taskData.task_id}"> ${taskData.task_title}</label><br />`;
-  asssignTaskDropdown.insertAdjacentHTML("beforebegin", output);
+  asssignTaskDropdown.insertAdjacentHTML('beforebegin', output);
 });
 
-logOutBtn.addEventListener("click", e => {
-  console.log("logout button clicked");
-  fetch("/employeelogout", {
-    method: "GET"
+logOutBtn.addEventListener('click', e => {
+  console.log('logout button clicked');
+  fetch('/employeelogout', {
+    method: 'GET'
   });
 });

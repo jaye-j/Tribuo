@@ -1,8 +1,30 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
-router.get('/admin', (req, res) => {
+router.use(cookieParser());
+router.use(
+  session({
+    secret: 'Tribuo',
+    cookie: { secure: false, maxAge: 5 * 24 * 60 * 60 * 1000 }
+  })
+);
+
+let auth = (req, res, next) => {
+  if (req.session.employee_email_address) {
+    if (req.session.is_admin == true) {
+      next();
+    } else {
+      res.redirect('/employee');
+    }
+  } else {
+    next();
+  }
+};
+
+router.get('/admin', auth, (req, res) => {
   let departmentsData = [];
   db.departments
     .findAll()

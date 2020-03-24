@@ -13,7 +13,19 @@ router.use(
   })
 );
 
-router.get('/employee', (req, res) => {
+let auth = (req, res, next) => {
+  if (req.session.employee_email_address) {
+    if (req.session.is_manager == true) {
+      res.redirect('/manager');
+    } else {
+      next();
+    }
+  } else {
+    res.redirect('/login');
+  }
+};
+
+router.get('/employee', auth, (req, res) => {
   let department_id = req.session.department_id;
   let employee_first_name = req.session.employee_first_name;
   let employee_last_name = req.session.employee_last_name;
