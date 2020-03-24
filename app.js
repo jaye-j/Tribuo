@@ -22,21 +22,21 @@ app.use(
 );
 
 // db.departments.destroy({ where: { id: 2 } });
-// for (let index = 79; index < 95; index++) {
+// for (let index = 95; index < 132; index++) {
 //   db.tasks.destroy({ where: { id: `${index}` } });
 // }
 
-app.use(require("./controllers/login"));
-app.use(require("./controllers/employee"));
-app.use(require("./controllers/manager"));
-app.use(require("./controllers/registration"));
-app.use(require("./controllers/error"));
-app.use(require("./controllers/login"));
-app.use(require("./controllers/admindashboard"));
-app.use(require("./controllers/adminlogin"));
-app.use(require("./controllers/aboutus"));
-app.use(require("./controllers/homepage"));
-app.use(require("./controllers/FAQ"));
+app.use(require('./controllers/login'));
+app.use(require('./controllers/employee'));
+app.use(require('./controllers/manager'));
+app.use(require('./controllers/registration'));
+app.use(require('./controllers/error'));
+app.use(require('./controllers/login'));
+app.use(require('./controllers/admindashboard'));
+app.use(require('./controllers/adminlogin'));
+app.use(require('./controllers/aboutus'));
+app.use(require('./controllers/homepage'));
+app.use(require('./controllers/FAQ'));
 
 let server = app.listen(PORT, () => {
   console.log('Server is listening on port 2020.');
@@ -52,8 +52,8 @@ io.on('connection', socket => {
     console.log('recieved new task on server');
     io.emit('new task', taskData);
   });
-  socket.on("claimed task", checkedValue => {
-    console.log("received claimed task value on server");
-    io.emit("claimed task", checkedValue);
+  socket.on('claimed task', checkedValue => {
+    console.log('received claimed task value on server');
+    io.emit('claimed task', checkedValue);
   });
 });
