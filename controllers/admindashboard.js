@@ -13,6 +13,7 @@ router.use(
 );
 
 let auth = (req, res, next) => {
+<<<<<<< HEAD
   if (req.session.is_admin) {
     if (req.session.is_admin == true) {
       next();
@@ -21,6 +22,16 @@ let auth = (req, res, next) => {
     }
   } else {
     res.redirect('/');
+=======
+  if (req.session.employee_email_address) {
+    if (req.session.is_admin == true) {
+      next();
+    } else {
+      res.redirect('/employee');
+    }
+  } else {
+    next();
+>>>>>>> af4b077b07d7fc4622f860017d79f1b79f50317a
   }
 };
 

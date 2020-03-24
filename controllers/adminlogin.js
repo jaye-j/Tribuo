@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 let db = require('../models');
 const session = require('express-session');
+<<<<<<< HEAD
 const cookieParser = require('cookie-parser');
 router.use(cookieParser());
 router.use(
@@ -26,6 +27,10 @@ let auth = (req, res, next) => {
 };
 
 router.get('/adminlogin', auth, (req, res) => {
+=======
+
+router.get('/adminlogin', (req, res) => {
+>>>>>>> af4b077b07d7fc4622f860017d79f1b79f50317a
   res.render('adminlogin');
 });
 
