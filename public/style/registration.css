@@ -329,24 +329,20 @@ h2 {
 .answer {
   font-family: 'Baloo Tamma 2', cursive;
   color: white;
-  padding: 10px;
+  padding: 5px;
   text-decoration: none;
   cursor: default;
+}
+
+.faqborderbottom{
+  border-bottom: white solid 0.5px;
 }
 
 .bg-lightgray {
   font-family: 'Baloo Tamma 2', cursive;
   width: 100%;
   background-color: transparent;
-  padding: 25px;
-  border-top: white solid 0.5px;
-  text-align: center;
-}
-.bg-white {
-  font-family: 'Baloo Tamma 2', cursive;
-  width: 100%;
-  background-color: transparent;
-  padding: 25px;
+  padding: 13px;
   border-top: white solid 0.5px;
   text-align: center;
 }
