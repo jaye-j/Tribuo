@@ -21,7 +21,10 @@ app.use(
   })
 );
 
-// db.departments.destroy({ where: { id: 2 } });
+// db.employees.findByPk(26).then(taskselected => {
+//   taskselected.is_admin = 'true';
+//   taskselected.save();
+// });
 // for (let index = 95; index < 132; index++) {
 //   db.tasks.destroy({ where: { id: `${index}` } });
 // }

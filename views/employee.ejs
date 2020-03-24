@@ -154,7 +154,8 @@
                       placeholder="Enter a title for the task."
                       cols="30"
                       rows="1"
-                    ></textarea><br /><br />
+                    ></textarea
+                    ><br /><br />
                     <label for="department">Task Instructions: </label><br />
                     <textarea
                       class="form-control"
@@ -189,7 +190,7 @@
                     <%= employee_first_name %>'s Tasks:
                   </h3>
                   <form class="select-specific-tasks bordertoptasks">
-                    <br>
+                    <br />
                     <% specificTaskInfo.forEach((specificTask)=>{ %>
                     <input
                       class="messageSubmitCheckbox"
@@ -201,7 +202,8 @@
                     <label for="<%= specificTask.id %>">
                       <%= specificTask.task_title %></label
                     >
-                    <div><%= specificTask.task_instruction %></div><br>
+                    <div><%= specificTask.task_instruction %></div>
+                    <br />
                     <% }) %>
                     <button
                       class="finish-task onpagebtn"
@@ -228,9 +230,9 @@
 
     <!-- Menu Toggle Script -->
     <script>
-      $("#menu-toggle").click(function(e) {
+      $('#menu-toggle').click(function(e) {
         e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+        $('#wrapper').toggleClass('toggled');
       });
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

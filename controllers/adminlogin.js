@@ -4,29 +4,8 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 let db = require('../models');
 const session = require('express-session');
-const cookieParser = require('cookie-parser');
 
-let auth = (req, res, next) => {
-  if (req.session.is_admin) {
-    if (req.session.is_admin == true) {
-      res.redirect('/admin');
-    } else {
-      res.redirect('/adminlogin');
-    }
-  } else {
-    next();
-  }
-};
-
-router.use(cookieParser());
-router.use(
-  session({
-    secret: 'Tribuo',
-    cookie: { secure: false, maxAge: 5 * 24 * 60 * 60 * 1000 }
-  })
-);
-
-router.get('/adminlogin', auth, (req, res) => {
+router.get('/adminlogin', (req, res) => {
   res.render('adminlogin');
 });
 
