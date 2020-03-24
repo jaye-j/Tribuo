@@ -346,6 +346,17 @@ h2 {
   text-align: center;
 }
 
+.logintext {
+  font-size: 13px;
+  cursor: default;
+}
+
+.registerhere {
+  cursor: pointer;
+  color: #006cf8;
+  text-decoration: none;
+}
+
 @media screen and (min-width: 800px) {
   .login-reg-btns {
     flex-flow:row;
