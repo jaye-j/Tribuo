@@ -122,9 +122,10 @@
                     value="<%= task.id %>"
                     id="<%= task.id %>"
                   />
-                  <label for="<%= task.id %>"> <%= task.task_title %></label
+                  <label for="<%= task.id %>"> <%= task.task_title %></label>
+                  <br />
                   <% }) %>
-                  ><br />
+                  <br />
                   <button
                     class="claim-task onpagebtn"
                     value="submit"
@@ -224,9 +225,9 @@
 
     <!-- Menu Toggle Script -->
     <script>
-      $('#menu-toggle').click(function(e) {
+      $("#menu-toggle").click(function(e) {
         e.preventDefault();
-        $('#wrapper').toggleClass('toggled');
+        $("#wrapper").toggleClass("toggled");
       });
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

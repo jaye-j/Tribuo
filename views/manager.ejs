@@ -108,48 +108,49 @@
             <!-- /navbar -->
           </div>
           <div class="row employeedashboardcontent mr-0">
-          <div class="container dash-content content-border some-content">
-            <div class="employee-container">
-              <form id="form" class="form add-task-form">
-                <h3 style="color: #006CF8;" class="font-baloo">
-                  Add A Task:
-                </h3>
+            <div class="container dash-content content-border some-content">
+              <div class="employee-container">
+                <form id="form" class="form add-task-form">
+                  <h3 style="color: #006CF8;" class="font-baloo">
+                    Add A Task:
+                  </h3>
 
-                <div class="form-group" style="height: auto; width: 100%;">
-                  <label for="department">Task Title: </label><br />
-                  <textarea
-                    class="form-control"
-                    type="text"
-                    id="task_title"
-                    name="task_title"
-                    placeholder="Enter a title for the task."
-                    cols="30"
-                    rows="1"
-                  ></textarea><br><br>
-                  <label for="department">Task Instructions: </label><br />
-                  <textarea
-                    class="form-control"
-                    type="text"
-                    id="task_instruction"
-                    name="task_instruction"
-                    placeholder="Enter Instructions."
-                    cols="30"
-                    rows="2"
-                  ></textarea>
-                </div>
+                  <div class="form-group" style="height: auto; width: 100%;">
+                    <label for="department">Task Title: </label><br />
+                    <textarea
+                      class="form-control"
+                      type="text"
+                      id="task_title"
+                      name="task_title"
+                      placeholder="Enter a title for the task."
+                      cols="30"
+                      rows="1"
+                    ></textarea
+                    ><br /><br />
+                    <label for="department">Task Instructions: </label><br />
+                    <textarea
+                      class="form-control"
+                      type="text"
+                      id="task_instruction"
+                      name="task_instruction"
+                      placeholder="Enter Instructions."
+                      cols="30"
+                      rows="2"
+                    ></textarea>
+                  </div>
 
-                <button
-                  value="submit"
-                  type="submit"
-                  class="add-task onpagebtn"
-                  style="margin-top: 5px;"
-                >
-                  Submit
-                </button>
-              </form>
+                  <button
+                    value="submit"
+                    type="submit"
+                    class="add-task onpagebtn"
+                    style="margin-top: 5px;"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
           <div class="row employeedashboardcontent mr-0">
             <div class="container dash-content content-border some-content">
               <div class="employee-container">
@@ -159,25 +160,26 @@
 
                 <form class="select-tasks">
                   <% taskInfo.forEach((task)=>{ %>
-                    <div class="bordertopred">
-                      <br>
-                  <input
-                    class="messageCheckbox"
-                    type="radio"
-                    name="tasks"
-                    value="<%= task.id %>"
-                    id="<%= task.id %>"
-                  />
-                  <label for="<%= task.id %>"> <%= task.task_title %></label
-                  >
+                  <div class="bordertopred">
+                    <br />
+                    <input
+                      class="messageCheckbox"
+                      type="radio"
+                      name="tasks"
+                      value="<%= task.id %>"
+                      id="<%= task.id %>"
+                    />
+                    <label for="<%= task.id %>"> <%= task.task_title %></label>
                   </div>
-                  <br>
+                  <br />
                   <% }) %>
                   <select name="" id="">
-                    <option value="placeholder">Select an employee.</option>
-                  </select><br>
+                    <option value="placeholder"
+                      >Select an employee.</option
+                    > </select
+                  ><br />
                   <button
-                  style="margin-top: 15px;"
+                    style="margin-top: 15px;"
                     class="assign-task onpagebtn"
                     value="submit"
                     type="submit"
@@ -197,9 +199,11 @@
 
                 <ul class="removeulbullets">
                   <% inProgress.forEach((task)=>{ %>
-              
-                  <li class="libordertopyellow"><br><%= task.task_title %></li>
-                  <br>
+
+                  <li class="libordertopyellow">
+                    <br /><%= task.task_title %>
+                  </li>
+                  <br />
                   <% }) %>
                 </ul>
               </div>
@@ -212,23 +216,20 @@
                   Tasks awaiting approval:
                 </h3>
 
-
                 <form class="select-tasks-manager-approval">
-
                   <% completed.forEach((task)=>{ %>
-                    <div class="bordertopgreen">
-                      <br>
-                  <input
-                    class="messageCheckboxComplete"
-                    type="radio"
-                    name="taskscomplete"
-                    value="<%= task.id %>"
-                    id="<%= task.id %>"
-                  />
-                  <label for="<%= task.id %>"> <%= task.task_title %></label
-                  >
+                  <div class="bordertopgreen">
+                    <br />
+                    <input
+                      class="messageCheckboxComplete"
+                      type="radio"
+                      name="taskscomplete"
+                      value="<%= task.id %>"
+                      id="<%= task.id %>"
+                    />
+                    <label for="<%= task.id %>"> <%= task.task_title %></label>
                   </div>
-                <br>
+                  <br />
                   <% }) %>
                   <button
                     class="complete-task-managerbtn onpagebtn"
@@ -246,18 +247,17 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script src="/js/manager.js"></script>
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-
     <!-- Menu Toggle Script -->
     <script>
-      $('#menu-toggle').click(function(e) {
+      $("#menu-toggle").click(function(e) {
         e.preventDefault();
-        $('#wrapper').toggleClass('toggled');
+        $("#wrapper").toggleClass("toggled");
       });
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
