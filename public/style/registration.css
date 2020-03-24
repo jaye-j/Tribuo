@@ -171,16 +171,19 @@ h2 {
   font-family: 'Baloo Tamma 2', cursive;
   font-size: 5rem;
   color: white;
+  cursor: default;
 }
 .subtitlefont3{
   font-family: 'Baloo Tamma 2', cursive;
   font-size: 1.6rem;
   color: white;
+  cursor: default;
 }
 .subtitlefont4{
   font-family: 'Baloo Tamma 2', cursive;
   font-size: 2rem;
   color: white;
+  cursor: default;
 }
 
 .namesfont{
