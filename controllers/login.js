@@ -18,8 +18,8 @@ let auth = (req, res, next) => {
   }
 };
 
-router.get("/login", auth, (req, res) => {
-  res.render("login");
+router.get('/login', auth, (req, res) => {
+  res.render('login');
 });
 router.use(cookieParser());
 router.use(
@@ -29,7 +29,7 @@ router.use(
   })
 );
 
-router.post("/login", (req, res) => {
+router.post('/login', (req, res) => {
   let employee_email_address = req.body.email;
   let employee_password = req.body.password;
 
